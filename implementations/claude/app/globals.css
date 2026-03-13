@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1B2B4B;
+  --color-navy-light: #2A3F6B;
+  --color-mint: #4ECDC4;
+  --color-mint-light: #A8E6CF;
+  --color-bg-light: #F8F9FA;
+  --color-text-main: #1A1A1A;
+  --color-text-sub: #6B7280;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system,
+      BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+      "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic",
+      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    color: var(--color-text-main);
+  }
+}
