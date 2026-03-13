@@ -1,21 +1,16 @@
+import PageHero from "../components/PageHero";
+
 export default function DoctorsPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-navy py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          <p className="text-mint font-semibold text-sm mb-2">의료진</p>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white">
-            풍부한 경험의 의료진
-          </h1>
-          <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
-            환자 한 분 한 분에게 최적의 치료를 제공하기 위해 끊임없이 연구합니다.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="의료진"
+        title="풍부한 경험의 의료진"
+        description="환자 한 분 한 분에게 최적의 치료를 제공하기 위해 끊임없이 연구합니다."
+      />
 
       {/* Doctor Card */}
-      <section className="py-16 sm:py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <div className="rounded-2xl border border-gray-100 p-8 sm:p-10 text-center">
             {/* Placeholder avatar */}

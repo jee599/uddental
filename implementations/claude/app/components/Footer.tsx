@@ -2,38 +2,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white">
-      {/* CTA Bar */}
-      <div className="bg-mint">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-lg font-bold text-white">
-            치아 건강이 걱정되신다면, 지금 상담하세요
-          </p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="https://booking.naver.com/booking/13/bizes/645159"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full bg-white px-6 py-2.5 text-sm font-bold text-navy hover:bg-gray-50 transition-colors"
-            >
-              네이버 예약
-            </a>
-            <a
-              href="/contact"
-              className="rounded-full bg-[#FEE500] px-6 py-2.5 text-sm font-bold text-[#3A1D1D] hover:bg-[#f6dd00] transition-colors"
-            >
-              카톡 예약
-            </a>
-            <a
-              href="tel:031-546-0051"
-              className="rounded-full border-2 border-white px-6 py-2.5 text-sm font-bold text-white hover:bg-white/10 transition-colors"
-            >
-              전화 상담
-            </a>
-          </div>
-        </div>
-      </div>
-
+    <footer className="bg-navy pb-24 text-white md:pb-10">
       {/* Footer Body */}
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -20,11 +21,15 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-2xl font-bold text-navy">UD</span>
-            <span className="text-sm font-medium text-navy">
-              동백유디치과
-            </span>
+          <Link href="/" className="flex items-center">
+            <Image
+              src="/images/brand/ud-logo.svg"
+              alt="유디치과"
+              width={118}
+              height={28}
+              className="h-7 w-auto"
+              priority
+            />
           </Link>
 
           {/* Desktop Nav */}
@@ -40,29 +45,13 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
-          <div className="hidden md:flex items-center gap-2">
-            <a
-              href="https://booking.naver.com/booking/13/bizes/645159"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-gray-200 px-4 py-2 text-sm font-semibold text-navy hover:border-mint hover:text-mint transition-colors"
-            >
-              네이버 예약
-            </a>
-            <a
-              href="/contact"
-              className="rounded-full bg-[#FEE500] px-4 py-2 text-sm font-semibold text-[#3A1D1D] hover:bg-[#f6dd00] transition-colors"
-            >
-              카톡 예약
-            </a>
-            <a
-              href="tel:031-546-0051"
-              className="rounded-full bg-mint px-4 py-2 text-sm font-semibold text-white hover:bg-mint/90 transition-colors"
-            >
-              전화 상담
-            </a>
-          </div>
+          <button
+            type="button"
+            onClick={() => window.dispatchEvent(new Event("focusReservation"))}
+            className="hidden rounded-full bg-mint px-4 py-2 text-sm font-semibold text-white hover:bg-mint/90 md:inline-flex"
+          >
+            예약하기
+          </button>
 
           {/* Mobile Menu Button */}
           <button
@@ -110,27 +99,17 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-            <div className="mt-3 flex flex-col gap-2 border-t border-gray-100 pt-3">
-              <a
-                href="https://booking.naver.com/booking/13/bizes/645159"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-lg bg-navy px-3 py-2.5 text-center text-sm font-semibold text-white"
+            <div className="mt-3 border-t border-gray-100 pt-3">
+              <button
+                type="button"
+                onClick={() => {
+                  window.dispatchEvent(new Event("focusReservation"));
+                  setIsOpen(false);
+                }}
+                className="w-full rounded-lg bg-mint px-3 py-2.5 text-center text-sm font-semibold text-white"
               >
-                네이버 예약
-              </a>
-              <a
-                href="/contact"
-                className="rounded-lg bg-[#FEE500] px-3 py-2.5 text-center text-sm font-semibold text-[#3A1D1D]"
-              >
-                카톡 예약
-              </a>
-              <a
-                href="tel:031-546-0051"
-                className="rounded-lg bg-mint px-3 py-2.5 text-center text-sm font-semibold text-white"
-              >
-                전화 상담
-              </a>
+                예약하기
+              </button>
             </div>
           </nav>
         </div>

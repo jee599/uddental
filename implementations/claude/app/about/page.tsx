@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PageHero from "../components/PageHero";
 
 const values = [
   {
@@ -22,22 +23,14 @@ const values = [
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-navy py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          <p className="text-mint font-semibold text-sm mb-2">병원소개</p>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white">
-            동백유디치과를 소개합니다
-          </h1>
-          <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
-            용인 동백에서 지역 주민의 구강 건강을 책임지는 유디치과의원
-            용인동백점입니다.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="병원소개"
+        title="동백유디치과를 소개합니다"
+        description="용인 동백에서 지역 주민의 구강 건강을 책임지는 유디치과의원 용인동백점입니다."
+      />
 
       {/* Photo + Intro */}
-      <section className="py-16 sm:py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
@@ -68,7 +61,7 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-16 sm:py-20 bg-bg-light">
+      <section className="py-12 sm:py-20 bg-bg-light">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-12">
             <p className="text-mint font-semibold text-sm mb-2">진료 철학</p>
@@ -98,7 +91,7 @@ export default function AboutPage() {
       </section>
 
       {/* Waiting Room */}
-      <section className="py-16 sm:py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
             <div>

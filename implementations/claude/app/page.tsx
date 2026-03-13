@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import HeroHeadlineRotator from "./components/HeroHeadlineRotator";
+import MobileQuickActions from "./components/MobileQuickActions";
 
 const services = [
   {
@@ -13,10 +15,6 @@ const services = [
   {
     title: "잇몸치료",
     desc: "잇몸 출혈, 붓기, 시린 증상을 정밀 진단하고 단계별로 치료합니다.",
-  },
-  {
-    title: "치아교정",
-    desc: "가지런한 치아 배열과 올바른 교합을 위한 교정 치료를 제공합니다.",
   },
   {
     title: "소아치과",
@@ -75,68 +73,34 @@ export default function Home() {
     <>
       {/* Hero - design AI inspired */}
       <section className="bg-navy py-14 sm:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
-          <div>
-            <p className="mb-3 text-sm font-semibold text-mint">용인 동백 · 예방 중심 치과</p>
-            <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-              가족을 진료하는 마음,
-              <br />
-              <span className="text-mint">동백유디치과</span>
-            </h1>
-            <p className="mt-4 text-base leading-relaxed text-gray-300 sm:text-lg">
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-end">
+          <div className="mt-0 lg:-mt-36">
+            <p className="mb-3 text-center text-sm font-semibold text-mint lg:text-left">용인 동백 · 예방 중심 치과</p>
+            <HeroHeadlineRotator />
+            <p className="mt-4 text-center text-lg leading-relaxed text-gray-200 sm:text-xl lg:text-left">
               상담부터 사후관리까지 한 흐름으로 연결하는
+              <br />
               신뢰 중심 진료 경험을 제공합니다.
             </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-              <a
-                href="https://booking.naver.com/booking/13/bizes/645159"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center rounded-full bg-white px-8 py-3 text-base font-bold text-navy hover:bg-gray-100 transition-colors"
-              >
-                네이버 예약
-              </a>
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center rounded-full bg-[#FEE500] px-8 py-3 text-base font-bold text-[#3A1D1D] hover:bg-[#f6dd00] transition-colors"
-              >
-                카톡 예약
-              </a>
-              <a
-                href="tel:031-546-0051"
-                className="inline-flex items-center justify-center rounded-full bg-mint px-8 py-3 text-base font-bold text-white hover:bg-mint/90 transition-colors"
-              >
-                전화 상담
-              </a>
-            </div>
+
+            <MobileQuickActions className="mt-8 hidden md:grid lg:mt-12" />
           </div>
 
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
               <Image
-                src="/images/clinic/KakaoTalk_Photo_2026-03-12-21-57-46 009.jpeg"
-                alt="동백유디치과 로비"
+                src="/images/clinic/KakaoTalk_Photo_2026-03-12-21-57-47 013.jpeg"
+                alt="동백유디치과 메인 로비"
                 fill
                 className="object-cover"
                 priority
               />
             </div>
-            <div className="absolute -bottom-5 -left-2 rounded-2xl bg-white p-4 shadow-lg sm:-left-5">
-              <p className="text-xs font-semibold text-navy">오늘 진료</p>
-              <p className="mt-1 text-sm text-text-sub">평일 09:30-18:30 / 토 09:30-14:30</p>
-            </div>
+            <MobileQuickActions className="mt-4 md:hidden" />
           </div>
         </div>
       </section>
 
-      {/* Conversion ribbon */}
-      <section className="border-y border-gray-100 bg-white">
-        <div className="mx-auto grid max-w-7xl gap-3 px-4 py-4 text-sm sm:grid-cols-3 sm:px-6">
-          <p className="text-text-sub"><span className="font-semibold text-navy">위치</span> 어정역 1번출구 도보권</p>
-          <p className="text-text-sub"><span className="font-semibold text-navy">주차</span> 건물 지하주차장 이용 가능</p>
-          <p className="text-text-sub"><span className="font-semibold text-navy">예약</span> 네이버 · 카톡 · 전화 상담 가능</p>
-        </div>
-      </section>
 
       {/* Journey */}
       <section className="bg-bg-light py-14 sm:py-16">
@@ -192,64 +156,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About Summary */}
-      <section className="py-16 sm:py-20 bg-bg-light">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-              <Image
-                src="/images/clinic/KakaoTalk_Photo_2026-03-12-21-57-47 013.jpeg"
-                alt="동백유디치과 접수 데스크"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <div>
-              <p className="text-mint font-semibold text-sm mb-2">병원소개</p>
-              <h2 className="text-2xl sm:text-3xl font-bold text-navy mb-6">
-                치료보다 예방,
-                <br />
-                정직한 진료를 약속합니다
-              </h2>
-              <div className="space-y-4">
-                {[
-                  {
-                    title: "예방 중심 진료",
-                    desc: "치료 전에 예방합니다. 정기 검진과 스케일링으로 건강한 치아를 오래 유지하도록 돕습니다.",
-                  },
-                  {
-                    title: "정직한 진료비",
-                    desc: "불필요한 과잉 진료 없이 꼭 필요한 치료만 권합니다.",
-                  },
-                  {
-                    title: "풍부한 시술 경험",
-                    desc: "다양한 증례를 경험한 의료진이 환자 한 분 한 분에게 맞는 치료 계획을 세웁니다.",
-                  },
-                ].map((item) => (
-                  <div key={item.title} className="flex gap-3">
-                    <div className="mt-1 flex-shrink-0 w-6 h-6 rounded-full bg-mint/20 flex items-center justify-center">
-                      <div className="w-2 h-2 rounded-full bg-mint" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-navy">{item.title}</h3>
-                      <p className="text-sm text-text-sub mt-0.5">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <Link
-                href="/about"
-                className="mt-6 inline-flex items-center text-sm font-semibold text-mint hover:text-navy transition-colors"
-              >
-                자세히 보기
-                <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Gallery */}
       <section className="py-16 sm:py-20 bg-white">
@@ -294,11 +200,11 @@ export default function Home() {
       </section>
 
       {/* Hours & Location */}
-      <section className="py-16 sm:py-20 bg-bg-light">
+      <section id="home-location" className="scroll-mt-24 py-16 sm:py-20 bg-bg-light">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Hours */}
-            <div className="rounded-2xl bg-white p-8 shadow-sm">
+            <div id="home-hours" className="scroll-mt-24 rounded-2xl bg-white p-8 shadow-sm">
               <h2 className="text-xl font-bold text-navy mb-6">진료시간</h2>
               <table className="w-full text-sm">
                 <tbody className="divide-y divide-gray-100">
@@ -353,6 +259,21 @@ export default function Home() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
                   </svg>
                 </Link>
+
+                <div className="pt-3 border-t border-gray-100">
+                  <p className="mb-2 text-xs font-semibold text-navy">SNS</p>
+                  <div className="flex flex-wrap gap-2">
+                    <a href="https://www.instagram.com/ud_dongbak/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-full border border-gray-200 px-3 py-1.5 text-xs font-medium text-text-sub hover:border-mint hover:text-navy">
+                      <img src="https://cdn.simpleicons.org/instagram" alt="동백점 인스타그램" className="h-3.5 w-3.5" /> 동백 인스타
+                    </a>
+                    <a href="https://blog.naver.com/PostList.naver?blogId=ud_dental&from=postList&categoryNo=94" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-full border border-gray-200 px-3 py-1.5 text-xs font-medium text-text-sub hover:border-mint hover:text-navy">
+                      <img src="https://cdn.simpleicons.org/naver/03C75A" alt="동백점 네이버 블로그" className="h-3.5 w-3.5" /> 동백 블로그
+                    </a>
+                    <a href="http://pf.kakao.com/_avxbGu" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 rounded-full border border-gray-200 px-3 py-1.5 text-xs font-medium text-text-sub hover:border-mint hover:text-navy">
+                      <img src="https://cdn.simpleicons.org/kakaotalk/3C1E1E" alt="카카오 채널" className="h-3.5 w-3.5" /> 카카오채널
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

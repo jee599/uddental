@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PageHero from "../components/PageHero";
 
 const photos = [
   {
@@ -66,21 +67,14 @@ const equipment = [
 export default function FacilitiesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-navy py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          <p className="text-mint font-semibold text-sm mb-2">시설/장비</p>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white">
-            깨끗하고 쾌적한 진료 환경
-          </h1>
-          <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
-            첨단 장비와 쾌적한 공간에서 정확한 진단과 안전한 치료를 제공합니다.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="시설/장비"
+        title="깨끗하고 쾌적한 진료 환경"
+        description="첨단 장비와 쾌적한 공간에서 정확한 진단과 안전한 치료를 제공합니다."
+      />
 
       {/* Photo Gallery */}
-      <section className="py-16 sm:py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {photos.map((p) => (
@@ -106,7 +100,7 @@ export default function FacilitiesPage() {
       </section>
 
       {/* Equipment */}
-      <section className="py-16 sm:py-20 bg-bg-light">
+      <section className="py-12 sm:py-20 bg-bg-light">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-12">
             <p className="text-mint font-semibold text-sm mb-2">주요 장비</p>

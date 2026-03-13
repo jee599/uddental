@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PageHero from "../components/PageHero";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -17,21 +18,13 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="bg-navy py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          <p className="text-mint font-semibold text-sm mb-2">상담/예약</p>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white">
-            편하게 상담하세요
-          </h1>
-          <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
-            전화, 네이버 예약, 온라인 문의 등 편한 방법으로 상담받으실 수
-            있습니다.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="상담/예약"
+        title="편하게 상담하세요"
+        description="전화, 네이버 예약, 온라인 문의 등 편한 방법으로 상담받으실 수 있습니다."
+      />
 
-      <section className="py-16 sm:py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Quick Contact */}

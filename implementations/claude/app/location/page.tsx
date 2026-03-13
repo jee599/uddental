@@ -1,19 +1,12 @@
 import Image from "next/image";
+import PageHero from "../components/PageHero";
 
 export default function LocationPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-navy py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          <p className="text-mint font-semibold text-sm mb-2">오시는길</p>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white">
-            오시는길 & 진료시간
-          </h1>
-        </div>
-      </section>
+      <PageHero label="오시는길" title="오시는길 · 진료시간" />
 
-      <section className="py-16 sm:py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Map placeholder */}

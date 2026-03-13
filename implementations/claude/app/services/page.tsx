@@ -1,8 +1,8 @@
 import Link from "next/link";
+import PageHero from "../components/PageHero";
 
 const services = [
   {
-    icon: "🦷",
     title: "임플란트",
     category: "보철과",
     desc: "상실된 치아 부위에 인공 치근(임플란트)을 심고 그 위에 보철물을 장착하여 자연치아와 유사한 기능과 외관을 회복합니다.",
@@ -14,7 +14,6 @@ const services = [
     ],
   },
   {
-    icon: "🔬",
     title: "충치/신경치료",
     category: "보존과",
     desc: "초기 충치부터 신경까지 진행된 깊은 충치까지, 자연치아를 최대한 보존하는 방향으로 치료합니다.",
@@ -26,7 +25,6 @@ const services = [
     ],
   },
   {
-    icon: "🩺",
     title: "잇몸치료",
     category: "치주과",
     desc: "잇몸 출혈, 붓기, 시린 증상, 구취 등 잇몸 질환을 정밀 진단하고 단계별로 치료합니다.",
@@ -38,19 +36,6 @@ const services = [
     ],
   },
   {
-    icon: "✨",
-    title: "치아교정",
-    category: "교정과",
-    desc: "가지런한 치아 배열과 올바른 교합을 통해 기능적으로나 심미적으로 건강한 치아를 만듭니다.",
-    details: [
-      "정밀 교정 진단 및 분석",
-      "메탈/세라믹/투명 교정 장치",
-      "성인 교정 및 소아 교정",
-      "교정 중 구강 위생 관리 지도",
-    ],
-  },
-  {
-    icon: "👶",
     title: "소아치과",
     category: "소아",
     desc: "아이가 치과를 무서워하지 않도록 편안한 환경에서 예방 중심으로 진료합니다.",
@@ -62,7 +47,6 @@ const services = [
     ],
   },
   {
-    icon: "🛡️",
     title: "예방/스케일링",
     category: "예방",
     desc: "정기 검진과 스케일링으로 치석을 제거하고 잇몸 질환과 충치를 사전에 예방합니다.",
@@ -74,7 +58,6 @@ const services = [
     ],
   },
   {
-    icon: "🦴",
     title: "사랑니 발치",
     category: "구강외과",
     desc: "매복 사랑니, 염증이 있는 사랑니 등을 정밀 진단 후 안전하게 발치합니다.",
@@ -90,30 +73,25 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      {/* Hero */}
-      <section className="bg-navy py-16 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 text-center">
-          <p className="text-mint font-semibold text-sm mb-2">진료과목</p>
-          <h1 className="text-3xl sm:text-4xl font-bold text-white">
-            어떤 치료가 필요하세요?
-          </h1>
-          <p className="mt-4 text-gray-300 max-w-2xl mx-auto">
-            동백유디치과는 보존과, 보철과, 교정과, 치주과, 구강외과, 소아치과 등 폭넓은 진료를 제공합니다.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="진료과목"
+        title="어떤 치료가 필요하세요?"
+        description="동백유디치과는 보존과, 보철과, 치주과, 구강외과, 소아치과 등 폭넓은 진료를 제공합니다."
+      />
 
       {/* Service List */}
-      <section className="py-16 sm:py-20">
+      <section className="py-12 sm:py-20">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 space-y-8">
-          {services.map((s) => (
+          {services.map((s, index) => (
             <div
               key={s.title}
               id={s.title}
               className="rounded-2xl border border-gray-100 p-6 sm:p-8 hover:shadow-md transition-shadow"
             >
               <div className="flex items-start gap-4">
-                <span className="text-4xl">{s.icon}</span>
+                <span className="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-bg-light text-xs font-bold text-navy">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
                 <div className="flex-1">
                   <div className="flex items-center gap-2 flex-wrap">
                     <h2 className="text-xl font-bold text-navy">{s.title}</h2>
@@ -156,7 +134,7 @@ export default function ServicesPage() {
               href="tel:031-546-0051"
               className="rounded-full bg-navy px-6 py-3 text-sm font-bold text-white hover:bg-navy-light transition-colors"
             >
-              전화 상담 031-546-0051
+전화 상담
             </a>
             <Link
               href="/contact"
