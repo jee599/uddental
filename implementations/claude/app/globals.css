@@ -69,3 +69,13 @@
     animation-duration: 1.05s, 1.05s;
   }
 }
+
+@keyframes sectionFocusPulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 181, 199, 0.35); }
+  100% { box-shadow: 0 0 0 12px rgba(0, 181, 199, 0); }
+}
+
+.section-focus {
+  animation: sectionFocusPulse 1.2s ease-out;
+  border-radius: 1rem;
+}

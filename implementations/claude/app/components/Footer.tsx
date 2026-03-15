@@ -54,8 +54,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-white/10 pt-6 text-center text-xs text-gray-400">
-          <p>© 2026 유디치과의원 용인동백점. All rights reserved.</p>
+        <div className="mt-8 border-t border-white/10 pt-6 text-xs text-gray-400 space-y-1">
+          <p>의료기관명: 유디치과의원 용인동백점</p>
+          <p>대표자: (임시) 홍길동</p>
+          <p>사업자등록번호: (임시) 000-00-00000</p>
+          <p>대표전화: 031-546-0051</p>
+          <p>광고 심의 관련: (임시) 심의 대상 문구/이미지 사용 시 사전 심의 후 심의번호 기재 예정</p>
+          <p className="pt-1">© 2026 유디치과의원 용인동백점. All rights reserved.</p>
         </div>
       </div>
     </footer>

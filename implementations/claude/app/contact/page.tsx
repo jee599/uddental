@@ -164,6 +164,15 @@ export default function ContactPage() {
                       placeholder="증상이나 궁금한 점을 자유롭게 적어주세요."
                     />
                   </div>
+                  <div className="rounded-xl border border-gray-200 bg-bg-light p-3 text-xs text-text-sub space-y-1">
+                    <p>개인정보 수집 항목: 이름, 연락처, 문의내용 (임시)</p>
+                    <p>수집 목적: 진료 상담 및 예약 안내 (임시)</p>
+                    <p>보관 기간: 상담 종료 후 최대 12개월 (임시)</p>
+                    <label className="mt-1 flex items-center gap-2 text-xs text-navy">
+                      <input type="checkbox" required className="h-3.5 w-3.5" />
+                      개인정보 수집·이용에 동의합니다. (임시)
+                    </label>
+                  </div>
                   <button
                     type="submit"
                     className="w-full rounded-xl bg-navy py-3.5 text-sm font-bold text-white hover:bg-navy-light transition-colors"
