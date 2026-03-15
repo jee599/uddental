@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import HeroHeadlineRotator from "./components/HeroHeadlineRotator";
+import HeroImageRotator from "./components/HeroImageRotator";
+import HeroBgPicker from "./components/HeroBgPicker";
 import MobileQuickActions from "./components/MobileQuickActions";
 
 const services = [
@@ -71,53 +73,49 @@ const faqs = [
 export default function Home() {
   return (
     <>
-      {/* Hero - design AI inspired */}
-      <section className="bg-navy py-14 sm:py-20">
-        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-end">
-          <div className="mt-0 lg:-mt-36">
-            <p className="mb-3 text-center text-sm font-semibold text-mint lg:text-left">용인 동백 · 예방 중심 치과</p>
+      {/* Hero */}
+      <HeroBgPicker>
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
+          {/* Glass card with text */}
+          <div className="rounded-3xl border border-gray-200 bg-white/95 px-5 py-8 shadow-2xl backdrop-blur-sm sm:px-10 sm:py-12">
+            <p className="mb-3 text-center text-xs font-semibold uppercase tracking-widest text-gray-400 lg:text-left">
+              용인 동백 · 예방 중심 치과
+            </p>
             <HeroHeadlineRotator />
-            <p className="mt-4 text-center text-lg leading-relaxed text-gray-200 sm:text-xl lg:text-left">
+            <p className="mt-4 text-center text-sm leading-relaxed text-text-sub sm:text-base lg:text-left">
               상담부터 사후관리까지 한 흐름으로 연결하는
               <br />
               신뢰 중심 진료 경험을 제공합니다.
             </p>
 
-            <MobileQuickActions className="mt-8 hidden md:grid lg:mt-12" />
+            <MobileQuickActions className="mt-8" />
           </div>
 
+          {/* Photo rotator */}
           <div className="relative">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-3xl">
-              <Image
-                src="/images/clinic/KakaoTalk_Photo_2026-03-12-21-57-47 013.jpeg"
-                alt="동백유디치과 메인 로비"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
-            <MobileQuickActions className="mt-4 md:hidden" />
+            <HeroImageRotator />
           </div>
         </div>
-      </section>
+      </HeroBgPicker>
 
 
       {/* Journey */}
-      <section className="bg-bg-light py-14 sm:py-16">
+      <section className="bg-gradient-to-b from-gray-50 to-white py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-7 text-center">
-            <p className="text-mint text-sm font-semibold">진료 여정</p>
-            <h2 className="mt-2 text-2xl font-bold text-navy sm:text-3xl">상담부터 사후관리까지</h2>
+            <h2 className="text-2xl font-bold sm:text-3xl" style={{ color: "#181D61" }}>진료 여정</h2>
+            <p className="mt-2 text-base sm:text-lg font-medium text-mint">상담부터 사후관리까지</p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {/* Mobile: horizontal scroll snap / Desktop: grid */}
+          <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
             {[
               ["01 상담", "증상 확인 및 내원 일정 안내"],
               ["02 정밀진단", "디지털 장비로 구강 상태 분석"],
               ["03 맞춤치료", "불필요한 치료 없이 필요한 진료만"],
               ["04 사후관리", "정기검진/스케일링 리마인드"],
             ].map(([step, desc]) => (
-              <div key={step} className="rounded-2xl bg-white p-5 shadow-sm">
-                <p className="text-xs font-bold text-mint">{step}</p>
+              <div key={step} className="rounded-2xl border border-gray-200 bg-gray-50 p-5 shadow-sm hover:shadow-md hover:border-mint/40 hover:-translate-y-1 transition-all duration-300">
+                <p className="text-xs font-bold text-navy">{step}</p>
                 <p className="mt-2 text-sm text-text-sub">{desc}</p>
               </div>
             ))}
@@ -126,22 +124,21 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-10 sm:py-14 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <p className="text-mint font-semibold text-sm mb-2">진료과목</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">
-              어떤 치료가 필요하세요?
-            </h2>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: "#181D61" }}>진료과목</h2>
+            <p className="mt-2 text-base sm:text-lg font-medium text-mint">어떤 치료가 필요하세요?</p>
           </div>
+          {/* Mobile: horizontal scroll snap / Desktop: grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s, index) => (
               <Link
                 key={s.title}
                 href="/services"
-                className="group rounded-2xl border border-gray-100 p-6 hover:border-mint hover:shadow-lg transition-all"
+                className="group rounded-2xl border border-gray-200 bg-gray-50 p-6 hover:border-mint hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
               >
-                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-bg-light text-xs font-bold text-navy">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-white text-xs font-bold text-navy group-hover:bg-mint group-hover:text-white transition-colors">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="mt-3 text-lg font-bold text-navy group-hover:text-mint transition-colors">
@@ -158,19 +155,17 @@ export default function Home() {
 
 
       {/* Gallery */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-10 sm:py-14 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="text-center mb-12">
-            <p className="text-mint font-semibold text-sm mb-2">시설 안내</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">
-              깨끗하고 쾌적한 진료 환경
-            </h2>
+          <div className="text-center mb-8">
+            <h2 className="text-2xl sm:text-3xl font-bold" style={{ color: "#181D61" }}>시설 안내</h2>
+            <p className="mt-2 text-base sm:text-lg font-medium text-mint">깨끗하고 쾌적한 진료 환경</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {galleryImages.map((img) => (
               <div
                 key={img.alt}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden group"
+                className="relative aspect-[4/3] rounded-2xl overflow-hidden group cursor-pointer"
               >
                 <Image
                   src={img.src}
@@ -205,8 +200,8 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Hours */}
             <div id="home-hours" className="scroll-mt-24 rounded-2xl bg-white p-8 shadow-sm">
-              <h2 className="text-xl font-bold text-navy mb-6">진료시간</h2>
-              <table className="w-full text-sm">
+              <h2 className="text-2xl font-bold text-navy mb-6">진료시간</h2>
+              <table className="w-full text-base sm:text-lg">
                 <tbody className="divide-y divide-gray-100">
                   {[
                     { day: "평일", time: "09:30 – 18:30", note: "" },
@@ -215,11 +210,11 @@ export default function Home() {
                     { day: "일/공휴일", time: "휴진", note: "" },
                   ].map((row) => (
                     <tr key={row.day}>
-                      <td className="py-3 font-medium text-navy w-24">
+                      <td className="py-3.5 font-semibold text-navy w-28">
                         {row.day}
                       </td>
-                      <td className="py-3 text-text-main">{row.time}</td>
-                      <td className="py-3 text-text-sub text-right text-xs">
+                      <td className="py-3.5 text-text-main">{row.time}</td>
+                      <td className="py-3.5 text-text-sub text-right text-sm">
                         {row.note}
                       </td>
                     </tr>
@@ -230,29 +225,29 @@ export default function Home() {
 
             {/* Location */}
             <div className="rounded-2xl bg-white p-8 shadow-sm">
-              <h2 className="text-xl font-bold text-navy mb-6">오시는길</h2>
-              <div className="space-y-4 text-sm">
+              <h2 className="text-2xl font-bold text-navy mb-6">오시는길</h2>
+              <div className="space-y-5 text-base sm:text-lg">
                 <div>
-                  <p className="font-medium text-navy">주소</p>
+                  <p className="font-semibold text-navy">주소</p>
                   <p className="text-text-sub mt-1">
                     경기 용인시 기흥구 동백중앙로 273 훼미리프라자2 2층
                   </p>
                 </div>
                 <div>
-                  <p className="font-medium text-navy">대중교통</p>
+                  <p className="font-semibold text-navy">대중교통</p>
                   <p className="text-text-sub mt-1">
                     에버라인 어정역 1번출구에서 약 1,000m
                   </p>
                 </div>
                 <div>
-                  <p className="font-medium text-navy">주차</p>
+                  <p className="font-semibold text-navy">주차</p>
                   <p className="text-text-sub mt-1">
                     건물 지하주차장 이용 가능
                   </p>
                 </div>
                 <Link
                   href="/location"
-                  className="inline-flex items-center text-sm font-semibold text-mint hover:text-navy transition-colors"
+                  className="inline-flex items-center text-base font-semibold text-mint hover:text-navy transition-colors"
                 >
                   지도 보기
                   <svg className="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
@@ -281,9 +276,9 @@ export default function Home() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 sm:py-20 bg-white">
+      <section className="py-10 sm:py-14 bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8">
             <p className="text-mint font-semibold text-sm mb-2">FAQ</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">
               자주 묻는 질문

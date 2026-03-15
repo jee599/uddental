@@ -79,3 +79,11 @@
   animation: sectionFocusPulse 1.2s ease-out;
   border-radius: 1rem;
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
