@@ -4,12 +4,13 @@ import PageHero from "../components/PageHero";
 const services = [
   {
     title: "임플란트",
-    category: "보철과",
-    desc: "상실된 치아 부위에 인공 치근(임플란트)을 심고 그 위에 보철물을 장착하여 자연치아와 유사한 기능과 외관을 회복합니다.",
+    category: "구강외과",
+    highlight: "구강외과전문의 상주",
+    desc: "구강외과전문의가 직접 진단부터 수술까지 진행합니다. 정밀 3D CT 분석과 검증된 재료로 기능과 심미를 함께 고려합니다.",
     details: [
+      "구강외과전문의 직접 시술",
       "정밀 3D CT 촬영으로 뼈 상태 분석",
       "검증된 임플란트 재료 사용",
-      "1:1 맞춤 치료 계획 수립",
       "시술 후 정기 관리 프로그램",
     ],
   },
@@ -36,14 +37,16 @@ const services = [
     ],
   },
   {
-    title: "소아치과",
-    category: "소아",
-    desc: "아이가 치과를 무서워하지 않도록 편안한 환경에서 예방 중심으로 진료합니다.",
+    title: "턱관절 치료",
+    category: "구강외과",
+    desc: "전문 장비와 보톡스 치료를 병행해 턱관절 증상을 체계적으로 관리합니다.",
     details: [
-      "유치 충치 치료",
-      "불소 도포 및 실란트",
-      "교합 및 성장 관찰",
-      "치과 공포 줄이는 단계적 진료",
+      "초음파(Ultrasound): 심부투열치료, 관절 통증 완화",
+      "TENS: 근피로·통증 완화, 근육 재교육",
+      "냉각스프레이(Cloretilo): 분사신장치료, 건강보험 적용",
+      "Perfect Healing Laser: 고성능 다이오드 레이저 + IR LED",
+      "Jaw Care System: 턱관절 장애 종합 치료",
+      "보톡스: 미용 + 치료 목적 (이갈이·턱관절 통증)",
     ],
   },
   {
@@ -70,13 +73,19 @@ const services = [
   },
 ];
 
+const tmjTargets = [
+  "이갈이가 심한 분",
+  "만성 두통이 있는 분",
+  "턱관절 통증·잡음이 있는 분",
+];
+
 export default function ServicesPage() {
   return (
     <>
       <PageHero
         label="진료과목"
         title="어떤 치료가 필요하세요?"
-        description="동백유디치과는 보존과, 보철과, 치주과, 구강외과, 소아치과 등 폭넓은 진료를 제공합니다."
+        description="임플란트, 턱관절 치료, 보존과, 치주과, 구강외과, 예방치료 등 폭넓은 진료를 제공합니다."
       />
 
       {/* Service List */}
@@ -98,6 +107,11 @@ export default function ServicesPage() {
                     <span className="rounded-full bg-bg-light px-3 py-0.5 text-xs font-medium text-text-sub">
                       {s.category}
                     </span>
+                    {"highlight" in s && s.highlight && (
+                      <span className="rounded-full bg-navy px-3 py-0.5 text-xs font-bold text-white">
+                        {s.highlight}
+                      </span>
+                    )}
                   </div>
                   <p className="mt-2 text-text-sub leading-relaxed">
                     {s.desc}
@@ -120,8 +134,65 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* TMJ Detail Section */}
+      <section className="py-12 sm:py-16 bg-bg-light">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="text-center mb-10">
+            <p className="text-mint font-semibold text-sm mb-2">TMJ Treatment</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">턱관절 치료 상세</h2>
+            <p className="mt-2 text-text-sub">전문 장비와 보톡스 치료를 병행해 턱관절 증상을 체계적으로 관리합니다.</p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Targets */}
+            <div className="rounded-2xl bg-white p-8 shadow-sm">
+              <h3 className="text-lg font-bold text-navy mb-5">이런 분들에게 권합니다</h3>
+              <div className="space-y-3">
+                {tmjTargets.map((target) => (
+                  <div
+                    key={target}
+                    className="flex items-center gap-3 rounded-xl bg-bg-light px-5 py-4 text-sm font-medium text-navy"
+                  >
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-mint text-xs font-bold text-white">
+                      ✓
+                    </span>
+                    {target}
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 rounded-xl border border-gray-200 p-5">
+                <h4 className="text-sm font-bold text-navy">보톡스 치료</h4>
+                <p className="mt-2 text-sm text-text-sub leading-relaxed">
+                  미용 목적뿐 아니라 이갈이·턱관절 통증 등 치료 목적의 보톡스를 시행합니다.
+                </p>
+              </div>
+            </div>
+
+            {/* Equipment */}
+            <div className="rounded-2xl bg-white p-8 shadow-sm">
+              <h3 className="text-lg font-bold text-navy mb-5">전문 치료 장비</h3>
+              <div className="space-y-3">
+                {[
+                  { name: "초음파 (Ultrasound)", desc: "심부투열치료, 관절 통증 완화" },
+                  { name: "TENS", desc: "근피로·통증 완화, 근육 재교육" },
+                  { name: "냉각스프레이 (Cloretilo)", desc: "에틸클로라이드 분사신장치료, 건강보험 적용" },
+                  { name: "Perfect Healing Laser", desc: "고성능 다이오드 레이저 + IR LED, 통증·부종·염증 완화" },
+                  { name: "Jaw Care System", desc: "턱관절 장애, 빠른 힐링, 통증·부종·염증 완화" },
+                ].map((eq) => (
+                  <div key={eq.name} className="rounded-xl bg-bg-light px-5 py-4">
+                    <p className="text-sm font-bold text-navy">{eq.name}</p>
+                    <p className="mt-1 text-sm text-text-sub">{eq.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="py-12 bg-bg-light">
+      <section className="py-12 bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <h2 className="text-xl font-bold text-navy mb-4">
             어떤 치료가 필요한지 잘 모르겠다면?
@@ -134,7 +205,7 @@ export default function ServicesPage() {
               href="tel:031-546-0051"
               className="rounded-full bg-navy px-6 py-3 text-sm font-bold text-white hover:bg-navy-light transition-colors"
             >
-전화 상담
+              전화 상담
             </a>
             <Link
               href="/contact"

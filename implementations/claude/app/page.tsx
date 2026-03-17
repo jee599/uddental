@@ -8,7 +8,8 @@ import MobileQuickActions from "./components/MobileQuickActions";
 const services = [
   {
     title: "임플란트",
-    desc: "상실된 치아를 자연치아처럼 회복합니다. 풍부한 시술 경험과 검증된 재료를 사용합니다.",
+    desc: "구강외과전문의가 직접 진단부터 수술까지 진행합니다. 정밀 CT 분석과 검증된 재료로 기능과 심미를 함께 고려합니다.",
+    highlight: "구강외과전문의 상주",
   },
   {
     title: "충치/신경치료",
@@ -19,8 +20,8 @@ const services = [
     desc: "잇몸 출혈, 붓기, 시린 증상을 정밀 진단하고 단계별로 치료합니다.",
   },
   {
-    title: "소아치과",
-    desc: "아이가 무서워하지 않는 진료 환경에서 예방 중심으로 치료합니다.",
+    title: "턱관절 치료",
+    desc: "초음파, TENS, 레이저 등 전문 장비와 보톡스 치료를 병행합니다. 이갈이·두통·턱관절 통증이 있는 분에게 권합니다.",
   },
   {
     title: "예방/스케일링",
@@ -61,12 +62,12 @@ const faqs = [
     a: "예약 없이도 방문 가능하지만, 대기 시간을 줄이려면 네이버 예약이나 전화 예약을 추천드립니다.",
   },
   {
-    q: "어린이도 진료할 수 있나요?",
-    a: "네, 소아치과 진료를 제공합니다. 아이에게 편안한 환경에서 예방 중심 치료를 진행합니다.",
+    q: "턱관절 치료도 가능한가요?",
+    a: "초음파, TENS, 레이저 등 전문 장비와 보톡스 치료를 병행합니다. 이갈이, 두통, 턱관절 통증이 있으신 분은 상담해 주세요.",
   },
   {
     q: "임플란트 상담만 받을 수 있나요?",
-    a: "네, 부담 없이 상담만 받으실 수 있습니다. 정밀 검사 후 치료 계획과 비용을 안내드립니다.",
+    a: "네, 부담 없이 상담만 받으실 수 있습니다. 구강외과전문의가 직접 정밀 검사 후 치료 계획과 비용을 안내드립니다.",
   },
 ];
 
@@ -144,6 +145,11 @@ export default function Home() {
                 <h3 className="mt-3 text-lg font-bold text-navy group-hover:text-mint transition-colors">
                   {s.title}
                 </h3>
+                {"highlight" in s && s.highlight && (
+                  <span className="mt-2 inline-block rounded-full bg-navy px-3 py-1 text-xs font-bold text-white">
+                    {s.highlight}
+                  </span>
+                )}
                 <p className="mt-2 text-sm text-text-sub leading-relaxed">
                   {s.desc}
                 </p>
@@ -271,6 +277,14 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+
+          {/* Reservation Notice */}
+          <div className="mt-6 rounded-2xl border border-mint/30 bg-mint/5 px-6 py-4">
+            <p className="text-sm font-semibold text-navy">예약 안내</p>
+            <p className="mt-1 text-sm text-text-sub">
+              네이버 예약 요청 시, 병원에서 스케줄을 확인한 후 예약 확정 안내를 드립니다.
+            </p>
           </div>
         </div>
       </section>

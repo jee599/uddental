@@ -65,6 +65,14 @@ export default function ContactPage() {
                 </div>
               </a>
 
+              {/* Reservation Notice */}
+              <div className="rounded-2xl border border-mint/30 bg-mint/5 p-6">
+                <h3 className="font-bold text-navy mb-2">예약 안내</h3>
+                <p className="text-sm text-text-sub">
+                  네이버 예약 요청 시, 병원에서 스케줄을 확인한 후 예약 확정 안내를 드립니다.
+                </p>
+              </div>
+
               {/* Info */}
               <div className="rounded-2xl bg-bg-light p-6">
                 <h3 className="font-bold text-navy mb-3">진료시간 안내</h3>
