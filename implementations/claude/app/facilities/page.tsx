@@ -103,10 +103,10 @@ export default function FacilitiesPage() {
       <section className="py-12 sm:py-20 bg-bg-light">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-mint font-bold text-base mb-1">주요 장비</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">주요 장비</h2>
+            <p className="mt-2 text-base sm:text-lg text-text-sub">
               정밀 진단을 위한 첨단 장비
-            </h2>
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {equipment.map((e) => (

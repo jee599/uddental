@@ -64,10 +64,10 @@ export default function AboutPage() {
       <section className="py-12 sm:py-20 bg-bg-light">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-mint font-bold text-base mb-1">진료 철학</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">진료 철학</h2>
+            <p className="mt-2 text-base sm:text-lg text-text-sub">
               이런 마음으로 진료합니다
-            </h2>
+            </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {values.map((v, i) => (

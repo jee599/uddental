@@ -139,8 +139,8 @@ export default function ServicesPage() {
       <section className="py-12 sm:py-16 bg-bg-light">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-10">
-            <p className="text-mint font-bold text-base mb-1">TMJ Treatment</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">턱관절 치료 상세</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">TMJ Treatment</h2>
+            <p className="mt-2 text-base sm:text-lg text-text-sub">턱관절 치료 상세</p>
             <p className="mt-2 text-text-sub">전문 장비와 보톡스 치료를 병행해 턱관절 증상을 체계적으로 관리합니다.</p>
           </div>
 

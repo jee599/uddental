@@ -104,8 +104,8 @@ export default function Home() {
       <section className="bg-gradient-to-b from-gray-50 to-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-10 text-center">
-            <p className="text-mint font-bold text-base mb-1">진료 안내</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">원장별 진료 요일</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">진료 안내</h2>
+            <p className="mt-2 text-base sm:text-lg text-text-sub">원장별 진료 요일</p>
           </div>
 
           {/* Doctor schedule cards */}
@@ -214,8 +214,8 @@ export default function Home() {
       <section className="py-10 sm:py-14 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-10">
-            <p className="text-mint font-bold text-base mb-1">진료과목</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">어떤 치료가 필요하세요?</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">진료과목</h2>
+            <p className="mt-2 text-base sm:text-lg text-text-sub">어떤 치료가 필요하세요?</p>
           </div>
           {/* Mobile: horizontal scroll snap / Desktop: grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -256,8 +256,8 @@ export default function Home() {
       <section className="py-10 sm:py-14 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-10">
-            <p className="text-mint font-bold text-base mb-1">시설 안내</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">깨끗하고 쾌적한 진료 환경</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">시설 안내</h2>
+            <p className="mt-2 text-base sm:text-lg text-text-sub">깨끗하고 쾌적한 진료 환경</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {galleryImages.map((img) => (
@@ -385,10 +385,10 @@ export default function Home() {
       <section className="py-10 sm:py-14 bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <div className="text-center mb-10">
-            <p className="text-mint font-bold text-base mb-1">FAQ</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">FAQ</h2>
+            <p className="mt-2 text-base sm:text-lg text-text-sub">
               자주 묻는 질문
-            </h2>
+            </p>
           </div>
           <div className="space-y-4">
             {faqs.map((faq) => (
