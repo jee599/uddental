@@ -105,7 +105,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-10 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">진료 안내</h2>
-            <p className="mt-2 text-base sm:text-lg text-text-sub">원장별 진료 요일</p>
+            <p className="mt-2 text-base sm:text-lg text-text-sub">원장님별 진료 요일</p>
           </div>
 
           {/* Doctor schedule cards */}
