@@ -96,7 +96,7 @@ export default function ServicesPage() {
             <div
               key={s.title}
               id={s.title}
-              className="rounded-2xl border border-gray-100 p-6 sm:p-8 hover:shadow-md transition-shadow"
+              className="rounded-2xl border-2 border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-lg hover:border-mint/40 transition-all duration-300"
             >
               <div className="flex items-start gap-4">
                 <span className="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-bg-light text-xs font-bold text-navy">

@@ -49,7 +49,7 @@ export default function DoctorsPage() {
             {doctors.map((doc) => (
               <div
                 key={doc.name}
-                className="group overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-sm transition-all duration-300 hover:shadow-xl"
+                className="group overflow-hidden rounded-3xl border-2 border-gray-200 bg-white shadow-md transition-all duration-300 hover:shadow-2xl hover:border-mint/50"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px]">
                   {/* Left: Profile */}
@@ -108,7 +108,7 @@ export default function DoctorsPage() {
                   </div>
 
                   {/* Right: Schedule panel */}
-                  <div className="relative border-t border-gray-100 lg:border-l lg:border-t-0">
+                  <div className="relative border-t-2 border-gray-200 lg:border-l-2 lg:border-t-0">
                     {/* Gradient accent top (mobile) / left (desktop) */}
                     <div className={`absolute left-0 top-0 h-1 w-full bg-gradient-to-r ${doc.color} lg:h-full lg:w-1`} />
 
@@ -164,7 +164,7 @@ export default function DoctorsPage() {
               <p className="mt-2 text-sm text-text-sub">원장님별 진료 요일을 한눈에 비교하세요</p>
             </div>
 
-            <div className="overflow-hidden rounded-2xl border border-gray-100 shadow-sm">
+            <div className="overflow-hidden rounded-2xl border-2 border-gray-200 shadow-md">
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
