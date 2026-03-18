@@ -100,15 +100,101 @@ export default function Home() {
         </div>
       </HeroBgPicker>
 
-      {/* Journey */}
-      <section className="bg-gradient-to-b from-gray-50 to-white py-10 sm:py-14">
+      {/* Doctor Schedule + Journey */}
+      <section className="bg-gradient-to-b from-gray-50 to-white py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-10 text-center">
-            <p className="text-mint font-bold text-base mb-1">진료 여정</p>
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">상담부터 사후관리까지</h2>
+            <p className="text-mint font-bold text-base mb-1">진료 안내</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">원장별 진료 요일</h2>
           </div>
-          {/* Mobile: horizontal scroll snap / Desktop: grid */}
-          <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
+
+          {/* Doctor schedule cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            {[
+              { name: "박 원장", role: "대표원장", color: "from-navy to-[#2a6cb8]", days: ["월", "화", "금", "토"], off: ["수", "목"], icon: "🦷" },
+              { name: "권 원장", role: "원장", color: "from-[#1a5c96] to-[#2980b9]", days: ["월", "화", "수", "목"], off: ["금", "토"], icon: "🔬" },
+              { name: "조 원장", role: "구강외과전문의", color: "from-mint to-[#0097a7]", days: [] as string[], off: [] as string[], special: "금요일 및 수술일", icon: "⚕️" },
+            ].map((doc) => (
+              <Link
+                key={doc.name}
+                href="/doctors"
+                className="group relative overflow-hidden rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300"
+              >
+                {/* Top accent */}
+                <div className={`h-1 w-full bg-gradient-to-r ${doc.color}`} />
+
+                <div className="p-6">
+                  {/* Header */}
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${doc.color} text-xl shadow-md transition-transform duration-300 group-hover:scale-105`}>
+                      <span role="img" aria-label={doc.role}>{doc.icon}</span>
+                    </div>
+                    <div>
+                      <p className="text-lg font-bold text-navy">{doc.name}</p>
+                      <p className={`text-xs font-bold ${doc.role === "구강외과전문의" ? "text-mint" : "text-text-sub"}`}>{doc.role}</p>
+                    </div>
+                  </div>
+
+                  {/* Schedule */}
+                  {doc.days.length > 0 ? (
+                    <div className="flex gap-1.5">
+                      {["월", "화", "수", "목", "금", "토"].map((day) => {
+                        const isWorking = doc.days.includes(day);
+                        return (
+                          <div key={day} className="flex-1 text-center">
+                            <span className="block text-[10px] font-semibold text-text-sub mb-1">{day}</span>
+                            <div className={`rounded-lg py-1.5 text-[11px] font-bold transition-all ${
+                              isWorking
+                                ? `bg-gradient-to-br ${doc.color} text-white shadow-sm`
+                                : "bg-gray-100 text-gray-300"
+                            }`}>
+                              {isWorking ? "●" : "—"}
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className={`rounded-xl bg-gradient-to-r ${doc.color} px-4 py-3 text-center`}>
+                      <p className="text-sm font-bold text-white">{doc.special}</p>
+                      <p className="text-[11px] text-white/70 mt-0.5">사전 예약 필수</p>
+                    </div>
+                  )}
+
+                  {doc.off.length > 0 && (
+                    <p className="mt-3 text-xs text-text-sub text-center">
+                      휴진: <span className="font-semibold text-navy">{doc.off.join("·")}요일</span>
+                    </p>
+                  )}
+                </div>
+
+                {/* Hover arrow */}
+                <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <svg className="h-4 w-4 text-mint" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </div>
+              </Link>
+            ))}
+          </div>
+
+          {/* Reservation notice inline */}
+          <div className="mt-6 rounded-2xl border border-mint/20 bg-mint/5 px-5 py-3.5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <p className="text-sm text-text-sub">
+              <span className="font-bold text-navy">네이버 예약</span> 요청 시 병원에서 스케줄 확인 후 예약을 확정해 드립니다.
+            </p>
+            <a
+              href="https://booking.naver.com/booking/13/bizes/645159"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 rounded-full bg-navy px-5 py-2 text-xs font-bold text-white hover:bg-mint transition-colors"
+            >
+              네이버 예약
+            </a>
+          </div>
+
+          {/* Journey steps */}
+          <div className="mt-12 grid gap-4 grid-cols-2 lg:grid-cols-4">
             {[
               ["01 상담", "증상 확인 및 내원 일정 안내"],
               ["02 정밀진단", "디지털 장비로 구강 상태 분석"],
