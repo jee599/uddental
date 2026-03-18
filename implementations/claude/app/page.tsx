@@ -308,7 +308,7 @@ export default function Home() {
             {faqs.map((faq) => (
               <details
                 key={faq.q}
-                className="group rounded-2xl border border-gray-100 overflow-hidden"
+                className="group rounded-2xl border border-gray-200 overflow-hidden"
               >
                 <summary className="flex cursor-pointer items-center justify-between p-5 text-sm font-semibold text-navy hover:bg-bg-light transition-colors">
                   {faq.q}

@@ -69,7 +69,7 @@ export default function DoctorsPage() {
 
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-3 flex-wrap">
-                          <h2 className="text-2xl font-bold text-navy">{doc.name}</h2>
+                          <h2 className="text-xl font-bold text-navy">{doc.name}</h2>
                           <span className={`rounded-full px-3.5 py-1 text-xs font-bold ${
                             doc.role === "구강외과전문의"
                               ? "bg-mint/10 text-mint border border-mint/20"
@@ -129,7 +129,7 @@ export default function DoctorsPage() {
                                     className={`flex h-11 w-11 items-center justify-center rounded-xl text-sm font-bold transition-all duration-200 ${
                                       isWorking
                                         ? `bg-gradient-to-br ${doc.color} text-white shadow-md`
-                                        : "bg-gray-50 text-gray-300 border border-gray-100"
+                                        : "bg-gray-50 text-gray-300 border border-gray-200"
                                     }`}
                                   >
                                     {isWorking ? "진료" : "휴진"}
@@ -160,7 +160,7 @@ export default function DoctorsPage() {
           <div className="mt-14">
             <div className="text-center mb-8">
               <p className="text-mint font-semibold text-sm mb-2">Weekly Schedule</p>
-              <h3 className="text-2xl font-bold text-navy">주간 진료 일정표</h3>
+              <h3 className="text-xl font-bold text-navy">주간 진료 일정표</h3>
               <p className="mt-2 text-sm text-text-sub">원장님별 진료 요일을 한눈에 비교하세요</p>
             </div>
 
