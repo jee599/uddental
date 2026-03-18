@@ -9,7 +9,7 @@ export default function Footer() {
           {/* Info */}
           <div>
             <h3 className="text-lg font-bold mb-3">동백유디치과</h3>
-            <p className="text-sm text-gray-300 leading-relaxed">
+            <p className="text-sm text-white/75 leading-relaxed">
               유디치과의원 용인동백점
               <br />
               경기 용인시 기흥구 동백중앙로 273
@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Hours */}
           <div>
             <h3 className="text-lg font-bold mb-3">진료시간</h3>
-            <div className="text-sm text-gray-300 space-y-1">
+            <div className="text-sm text-white/75 space-y-1">
               <p>평일 09:30 – 18:30</p>
               <p>토요일 09:30 – 14:30</p>
               <p>점심시간 13:00 – 14:00 (토요일 없음)</p>
@@ -32,7 +32,7 @@ export default function Footer() {
           {/* Links */}
           <div>
             <h3 className="text-lg font-bold mb-3">바로가기</h3>
-            <div className="flex flex-col gap-2 text-sm text-gray-300">
+            <div className="flex flex-col gap-2 text-sm text-white/75">
               <Link href="/services" className="hover:text-mint transition-colors">
                 진료과목
               </Link>
@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-white/10 pt-6 text-xs text-gray-400 space-y-1">
+        <div className="mt-8 border-t border-white/10 pt-6 text-xs text-white/50 space-y-1">
           <p>의료기관명: 유디치과의원 용인동백점</p>
           <p>대표자: (임시) 홍길동</p>
           <p>사업자등록번호: (임시) 000-00-00000</p>

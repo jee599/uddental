@@ -103,7 +103,7 @@ export default function Home() {
       {/* Journey */}
       <section className="bg-gradient-to-b from-gray-50 to-white py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="mb-7 text-center">
+          <div className="mb-10 text-center">
             <p className="text-mint font-semibold text-sm mb-2">진료 여정</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">상담부터 사후관리까지</h2>
           </div>
@@ -115,7 +115,7 @@ export default function Home() {
               ["03 맞춤치료", "불필요한 치료 없이 필요한 진료만"],
               ["04 사후관리", "정기검진/스케일링 리마인드"],
             ].map(([step, desc]) => (
-              <div key={step} className="rounded-2xl border border-gray-200 bg-gray-50 p-5 shadow-sm hover:shadow-md hover:border-mint/40 hover:-translate-y-1 transition-all duration-300">
+              <div key={step} className="rounded-2xl border border-gray-200 bg-white shadow-sm p-5 hover:shadow-md hover:border-mint/40 hover:-translate-y-1 transition-all duration-300">
                 <p className="text-xs font-bold text-navy">{step}</p>
                 <p className="mt-2 text-sm text-text-sub">{desc}</p>
               </div>
@@ -127,7 +127,7 @@ export default function Home() {
       {/* Services */}
       <section className="py-10 sm:py-14 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="text-center mb-8">
+          <div className="text-center mb-10">
             <p className="text-mint font-semibold text-sm mb-2">진료과목</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">어떤 치료가 필요하세요?</h2>
           </div>
@@ -137,7 +137,7 @@ export default function Home() {
               <Link
                 key={s.title}
                 href="/services"
-                className="group relative rounded-2xl border-2 border-gray-200 bg-white p-6 hover:border-mint hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 overflow-hidden"
+                className="group relative rounded-2xl border border-gray-200 shadow-md bg-white p-6 hover:border-mint hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden"
               >
                 <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-navy to-mint opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="flex items-center gap-3 mb-3">
@@ -153,7 +153,7 @@ export default function Home() {
                     {s.highlight}
                   </span>
                 )}
-                <p className="text-sm text-text-sub leading-relaxed">
+                <p className="text-[15px] text-text-sub leading-relaxed">
                   {s.desc}
                 </p>
                 <div className="mt-4 flex items-center text-xs font-semibold text-mint opacity-0 group-hover:opacity-100 transition-opacity">
@@ -169,7 +169,7 @@ export default function Home() {
       {/* Gallery */}
       <section className="py-10 sm:py-14 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="text-center mb-8">
+          <div className="text-center mb-10">
             <p className="text-mint font-semibold text-sm mb-2">시설 안내</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">깨끗하고 쾌적한 진료 환경</h2>
           </div>
@@ -211,7 +211,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
             {/* Hours */}
-            <div id="home-hours" className="scroll-mt-24 rounded-2xl bg-white p-8 shadow-sm">
+            <div id="home-hours" className="scroll-mt-24 rounded-2xl bg-white p-8 shadow-md">
               <h2 className="text-2xl font-bold text-navy mb-6">진료시간</h2>
               <table className="w-full text-base sm:text-lg">
                 <tbody className="divide-y divide-gray-100">
@@ -236,7 +236,7 @@ export default function Home() {
             </div>
 
             {/* Location */}
-            <div className="rounded-2xl bg-white p-8 shadow-sm">
+            <div className="rounded-2xl bg-white p-8 shadow-md">
               <h2 className="text-2xl font-bold text-navy mb-6">오시는길</h2>
               <div className="space-y-5 text-base sm:text-lg">
                 <div>
@@ -298,7 +298,7 @@ export default function Home() {
       {/* FAQ */}
       <section className="py-10 sm:py-14 bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <div className="text-center mb-8">
+          <div className="text-center mb-10">
             <p className="text-mint font-semibold text-sm mb-2">FAQ</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">
               자주 묻는 질문
@@ -308,7 +308,7 @@ export default function Home() {
             {faqs.map((faq) => (
               <details
                 key={faq.q}
-                className="group rounded-2xl border border-gray-200 overflow-hidden"
+                className="group rounded-2xl border border-gray-200 shadow-sm overflow-hidden"
               >
                 <summary className="flex cursor-pointer items-center justify-between p-5 text-sm font-semibold text-navy hover:bg-bg-light transition-colors">
                   {faq.q}

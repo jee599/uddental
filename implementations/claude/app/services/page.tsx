@@ -96,7 +96,7 @@ export default function ServicesPage() {
             <div
               key={s.title}
               id={s.title}
-              className="rounded-2xl border-2 border-gray-200 bg-white p-6 sm:p-8 shadow-sm hover:shadow-lg hover:border-mint/40 transition-all duration-300"
+              className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-md hover:shadow-xl hover:border-mint/40 transition-all duration-300"
             >
               <div className="flex items-start gap-4">
                 <span className="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-bg-light text-xs font-bold text-navy">
@@ -105,7 +105,7 @@ export default function ServicesPage() {
                 <div className="flex-1">
                   <div className="flex items-center gap-2 flex-wrap">
                     <h2 className="text-xl font-bold text-navy">{s.title}</h2>
-                    <span className="rounded-full bg-bg-light px-3 py-0.5 text-xs font-medium text-text-sub">
+                    <span className="rounded-full bg-mint/10 text-mint border border-mint/20 px-3 py-1 text-xs font-medium">
                       {s.category}
                     </span>
                     {"highlight" in s && s.highlight && (
@@ -114,14 +114,14 @@ export default function ServicesPage() {
                       </span>
                     )}
                   </div>
-                  <p className="mt-2 text-text-sub leading-relaxed">
+                  <p className="mt-2 text-[15px] text-text-sub leading-relaxed">
                     {s.desc}
                   </p>
-                  <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {s.details.map((d) => (
                       <li
                         key={d}
-                        className="flex items-center gap-2 text-sm text-text-sub"
+                        className="flex items-center gap-2 text-[15px] text-text-sub"
                       >
                         <div className="h-1.5 w-1.5 rounded-full bg-mint flex-shrink-0" />
                         {d}
@@ -146,7 +146,7 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Targets */}
-            <div className="rounded-2xl bg-white p-8 shadow-sm">
+            <div className="rounded-2xl bg-white p-8 shadow-md">
               <h3 className="text-lg font-bold text-navy mb-5">이런 분들에게 권합니다</h3>
               <div className="space-y-3">
                 {tmjTargets.map((target) => (
@@ -160,7 +160,7 @@ export default function ServicesPage() {
                       </span>
                       <span className="text-sm font-semibold text-navy">{target.label}</span>
                     </div>
-                    <p className="mt-1.5 ml-9 text-xs text-text-sub leading-relaxed">{target.sub}</p>
+                    <p className="mt-1.5 ml-9 text-sm text-text-sub leading-relaxed">{target.sub}</p>
                   </div>
                 ))}
               </div>
@@ -174,7 +174,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Equipment */}
-            <div className="rounded-2xl bg-white p-8 shadow-sm">
+            <div className="rounded-2xl bg-white p-8 shadow-md">
               <h3 className="text-lg font-bold text-navy mb-5">전문 치료 장비</h3>
               <div className="space-y-3">
                 {[
@@ -186,7 +186,7 @@ export default function ServicesPage() {
                 ].map((eq) => (
                   <div key={eq.name} className="rounded-xl bg-bg-light px-5 py-4">
                     <p className="text-sm font-bold text-navy">{eq.name}</p>
-                    <p className="mt-1 text-sm text-text-sub">{eq.desc}</p>
+                    <p className="mt-1 text-[15px] text-text-sub">{eq.desc}</p>
                     {eq.code && <p className="mt-1 text-xs font-medium text-mint">{eq.code}</p>}
                   </div>
                 ))}
