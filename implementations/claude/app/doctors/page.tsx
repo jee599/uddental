@@ -8,8 +8,12 @@ const doctors = [
     bgTint: "from-navy/3 to-transparent",
     schedule: { working: ["월", "화", "금", "토"], off: ["수", "목"] },
     specialty: ["보존치료", "보철치료", "잇몸치료", "예방치료"],
-    philosophy: "내 가족이라면 어떤 치료를 받게 할까 — 이 질문에서 시작합니다.",
-    summary: "예방 중심 진료와 충분한 설명을 우선하며, 과잉 진료 없이 꼭 필요한 치료만 권합니다.",
+    career: [
+      "(임시) 서울대학교 치의학대학원 졸업",
+      "(임시) 서울대학교치과병원 수련",
+      "(임시) 대한치과보존학회 정회원",
+      "(임시) 前 강남 OO치과 원장",
+    ],
     icon: "🦷",
   },
   {
@@ -19,8 +23,12 @@ const doctors = [
     bgTint: "from-[#1a5c96]/3 to-transparent",
     schedule: { working: ["월", "화", "수", "목"], off: ["금", "토"] },
     specialty: ["보존치료", "보철치료", "잇몸치료", "예방치료"],
-    philosophy: "치료보다 예방이 중요하다고 믿습니다.",
-    summary: "정기 검진을 통해 큰 치료를 미리 막는 것이 환자와 치아 모두에게 최선의 결과를 만듭니다.",
+    career: [
+      "(임시) 연세대학교 치과대학 졸업",
+      "(임시) 연세대학교치과병원 수련",
+      "(임시) 대한치과보철학회 정회원",
+      "(임시) 前 용인 OO치과 진료과장",
+    ],
     icon: "🔬",
   },
   {
@@ -30,8 +38,13 @@ const doctors = [
     bgTint: "from-mint/3 to-transparent",
     schedule: { working: ["금요일 및 수술일"], off: [] as string[] },
     specialty: ["임플란트", "구강외과", "사랑니 발치", "턱관절·보톡스"],
-    philosophy: "정밀한 진단이 안전한 수술의 첫 걸음입니다.",
-    summary: "3D CT 기반 정밀 분석으로 임플란트 식립, 난이도 높은 매복 사랑니 발치, 턱관절 치료를 담당합니다.",
+    career: [
+      "(임시) 경희대학교 치과대학 졸업",
+      "(임시) 경희대학교치과병원 구강악안면외과 수련",
+      "(임시) 구강악안면외과 전문의 취득",
+      "(임시) 대한구강악안면외과학회 정회원",
+      "(임시) 대한턱관절교합학회 정회원",
+    ],
     icon: "⚕️",
   },
 ];
@@ -95,17 +108,19 @@ export default function DoctorsPage() {
                           </span>
                         </div>
 
-                        {/* Philosophy quote */}
-                        <div className="mt-5 relative rounded-2xl bg-white/80 border border-gray-100 p-4">
+                        {/* Career */}
+                        <div className="mt-5 relative rounded-2xl bg-white/80 border border-gray-100 p-5">
                           <div className={`absolute -left-px top-4 bottom-4 w-1 rounded-full bg-gradient-to-b ${doc.color}`} />
-                          <p className="pl-4 text-[15px] font-medium text-navy leading-relaxed">
-                            &ldquo;{doc.philosophy}&rdquo;
-                          </p>
+                          <p className="pl-4 text-xs font-bold text-text-sub uppercase tracking-wider mb-3">약력</p>
+                          <ul className="pl-4 space-y-1.5">
+                            {doc.career.map((item) => (
+                              <li key={item} className="flex items-start gap-2 text-[15px] text-navy leading-relaxed">
+                                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-mint flex-shrink-0" />
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
                         </div>
-
-                        <p className="mt-4 text-[15px] text-text-sub leading-relaxed">
-                          {doc.summary}
-                        </p>
 
                         {/* Specialty tags */}
                         <div className="mt-5 flex flex-wrap gap-2">
@@ -134,34 +149,31 @@ export default function DoctorsPage() {
 
                       {doc.schedule.off.length > 0 ? (
                         <>
-                          <div className="grid grid-cols-6 gap-2">
+                          <div className="space-y-2">
                             {dayLabels.map((day) => {
                               const isWorking = doc.schedule.working.includes(day);
                               return (
-                                <div key={day} className="flex flex-col items-center gap-2">
-                                  <span className="text-[11px] font-semibold text-text-sub">{day}</span>
-                                  <div
-                                    className={`day-active flex h-12 w-12 items-center justify-center rounded-2xl text-xs font-bold transition-all duration-300 cursor-default ${
-                                      isWorking
-                                        ? `bg-gradient-to-br ${doc.color} text-white shadow-lg`
-                                        : "bg-gray-100 text-gray-300"
-                                    }`}
-                                  >
-                                    {isWorking ? (
-                                      <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
+                                <div key={day} className={`flex items-center justify-between rounded-xl px-4 py-2.5 transition-all duration-200 ${
+                                  isWorking
+                                    ? "bg-white border border-gray-100 shadow-sm"
+                                    : "bg-gray-50"
+                                }`}>
+                                  <span className={`text-sm font-bold ${isWorking ? "text-navy" : "text-gray-300"}`}>
+                                    {day}요일
+                                  </span>
+                                  {isWorking ? (
+                                    <span className={`inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r ${doc.color} px-3 py-1 text-xs font-bold text-white shadow-sm`}>
+                                      <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                       </svg>
-                                    ) : "—"}
-                                  </div>
+                                      진료
+                                    </span>
+                                  ) : (
+                                    <span className="text-xs font-medium text-gray-300">휴진</span>
+                                  )}
                                 </div>
                               );
                             })}
-                          </div>
-                          <div className="mt-5 rounded-xl bg-white border border-gray-100 px-4 py-3 flex items-center gap-2">
-                            <span className="h-2 w-2 rounded-full bg-gray-300" />
-                            <span className="text-xs text-text-sub">
-                              휴진: <span className="font-bold text-navy">{doc.schedule.off.join("·")}요일</span>
-                            </span>
                           </div>
                         </>
                       ) : (
