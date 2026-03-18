@@ -99,7 +99,6 @@ export default function Home() {
         </div>
       </HeroBgPicker>
 
-
       {/* Journey */}
       <section className="bg-gradient-to-b from-gray-50 to-white py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
@@ -158,7 +157,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
 
       {/* Gallery */}
       <section className="py-10 sm:py-14 bg-white">
