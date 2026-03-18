@@ -64,7 +64,7 @@ export default function AboutPage() {
       <section className="py-12 sm:py-20 bg-bg-light">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-mint font-semibold text-sm mb-2">진료 철학</p>
+            <p className="text-mint font-bold text-base mb-1">진료 철학</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">
               이런 마음으로 진료합니다
             </h2>

@@ -159,7 +159,7 @@ export default function DoctorsPage() {
           {/* Unified Schedule Overview */}
           <div className="mt-14">
             <div className="text-center mb-8">
-              <p className="text-mint font-semibold text-sm mb-2">Weekly Schedule</p>
+              <p className="text-mint font-bold text-base mb-1">Weekly Schedule</p>
               <h3 className="text-xl font-bold text-navy">주간 진료 일정표</h3>
               <p className="mt-2 text-sm text-text-sub">원장님별 진료 요일을 한눈에 비교하세요</p>
             </div>

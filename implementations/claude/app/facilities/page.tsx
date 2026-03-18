@@ -103,7 +103,7 @@ export default function FacilitiesPage() {
       <section className="py-12 sm:py-20 bg-bg-light">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-mint font-semibold text-sm mb-2">주요 장비</p>
+            <p className="text-mint font-bold text-base mb-1">주요 장비</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">
               정밀 진단을 위한 첨단 장비
             </h2>

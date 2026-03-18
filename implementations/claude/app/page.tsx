@@ -104,7 +104,7 @@ export default function Home() {
       <section className="bg-gradient-to-b from-gray-50 to-white py-10 sm:py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-10 text-center">
-            <p className="text-mint font-semibold text-sm mb-2">진료 여정</p>
+            <p className="text-mint font-bold text-base mb-1">진료 여정</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">상담부터 사후관리까지</h2>
           </div>
           {/* Mobile: horizontal scroll snap / Desktop: grid */}
@@ -128,7 +128,7 @@ export default function Home() {
       <section className="py-10 sm:py-14 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-10">
-            <p className="text-mint font-semibold text-sm mb-2">진료과목</p>
+            <p className="text-mint font-bold text-base mb-1">진료과목</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">어떤 치료가 필요하세요?</h2>
           </div>
           {/* Mobile: horizontal scroll snap / Desktop: grid */}
@@ -170,7 +170,7 @@ export default function Home() {
       <section className="py-10 sm:py-14 bg-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-10">
-            <p className="text-mint font-semibold text-sm mb-2">시설 안내</p>
+            <p className="text-mint font-bold text-base mb-1">시설 안내</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">깨끗하고 쾌적한 진료 환경</h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -299,7 +299,7 @@ export default function Home() {
       <section className="py-10 sm:py-14 bg-white">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
           <div className="text-center mb-10">
-            <p className="text-mint font-semibold text-sm mb-2">FAQ</p>
+            <p className="text-mint font-bold text-base mb-1">FAQ</p>
             <h2 className="text-2xl sm:text-3xl font-bold text-navy">
               자주 묻는 질문
             </h2>
