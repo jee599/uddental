@@ -8,8 +8,8 @@
   --color-bg-light: #f4f8fd;
   --color-text-main: #1a1a1a;
   --color-text-sub: #64748b;
-  --color-warm: #e8734a;
-  --color-warm-light: #fff4f0;
+  --color-warm: #6366f1;
+  --color-warm-light: #eef2ff;
 }
 
 @layer base {

@@ -225,7 +225,7 @@ export default function ServicesPage() {
                 ))}
               </div>
 
-              <div className="mt-6 rounded-xl border-2 border-[#e8734a]/40 bg-[#e8734a]/5 p-5">
+              <div className="mt-6 rounded-xl border-2 border-warm/40 bg-warm/5 p-5">
                 <h4 className="text-sm font-bold text-navy">
                   보톡스(보툴리눔톡신) 치료
                 </h4>
@@ -309,7 +309,7 @@ export default function ServicesPage() {
             </a>
             <Link
               href="/contact"
-              className="rounded-full bg-[#e8734a] px-6 py-3 text-sm font-bold text-white hover:bg-[#d4623b] transition-colors"
+              className="rounded-full bg-warm px-6 py-3 text-sm font-bold text-white hover:brightness-110 transition-colors"
             >
               온라인 문의
             </Link>
