@@ -55,151 +55,122 @@ export default function DoctorsPage() {
   return (
     <>
       <PageHero
+        bgImage="/images/clinic/KakaoTalk_Photo_2026-03-12-21-57-46 007.jpeg"
         label="의료진"
-        title="풍부한 경험의 의료진"
-        description="3인 원장 체제로 보존·보철·치주·구강외과 전 분야를 진료합니다."
+        title="3인 원장 체제의 전문 진료"
+        description="보존·보철·치주·구강외과 전 분야를 각 분야 전문 원장이 직접 진료합니다."
       />
 
+      {/* 의료진 카드 섹션 */}
       <section className="py-14 sm:py-20 bg-gradient-to-b from-bg-light to-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
-
-          {/* Doctor Cards */}
-          <div className="space-y-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             {doctors.map((doc, idx) => (
               <div
                 key={doc.name}
                 className={`animate-fade-up animate-fade-up-${idx + 1} group overflow-hidden rounded-3xl bg-white shadow-lg transition-all duration-500 hover:shadow-2xl hover:-translate-y-1`}
               >
-                {/* Top accent gradient bar */}
-                <div className={`h-1.5 w-full bg-gradient-to-r ${doc.color}`} />
+                {/* 그라데이션 헤더 */}
+                <div className={`relative h-32 bg-gradient-to-r ${doc.color}`}>
+                  {/* 장식 원형 */}
+                  <div className="absolute top-4 right-4 h-16 w-16 rounded-full bg-white/10" />
+                  <div className="absolute bottom-6 right-12 h-8 w-8 rounded-full bg-white/5" />
+                </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px]">
-                  {/* Left: Profile */}
-                  <div className={`relative p-8 sm:p-10 bg-gradient-to-br ${doc.bgTint}`}>
-                    <div className="flex items-start gap-6">
-                      {/* Avatar */}
-                      <div className="relative flex-shrink-0">
-                        <div className={`flex h-24 w-24 items-center justify-center rounded-3xl bg-gradient-to-br ${doc.color} text-4xl shadow-xl transition-transform duration-300 group-hover:scale-105`}>
-                          <span role="img" aria-label={doc.role}>{doc.icon}</span>
-                        </div>
-                        {doc.role === "구강외과전문의" && (
-                          <div className="badge-shimmer absolute -top-2 -right-3 rounded-full px-2.5 py-1 text-[10px] font-bold text-white shadow-md">
-                            전문의
-                          </div>
-                        )}
-                        {doc.role === "대표원장" && (
-                          <div className="absolute -top-2 -right-3 rounded-full bg-navy px-2.5 py-1 text-[10px] font-bold text-white shadow-md">
-                            대표
-                          </div>
-                        )}
-                      </div>
-
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-3 flex-wrap">
-                          <h2 className="text-2xl font-bold text-navy">{doc.name}</h2>
-                          <span className={`rounded-full px-3.5 py-1 text-xs font-bold ${
-                            doc.role === "구강외과전문의"
-                              ? "bg-mint/10 text-mint border border-mint/20"
-                              : doc.role === "대표원장"
-                                ? "bg-navy/8 text-navy border border-navy/15"
-                                : "bg-gray-50 text-text-sub border border-gray-200"
-                          }`}>
-                            {doc.role}
-                          </span>
-                        </div>
-
-                        {/* Career */}
-                        <div className="mt-5 relative rounded-2xl bg-white/80 border border-gray-100 p-5">
-                          <div className={`absolute -left-px top-4 bottom-4 w-1 rounded-full bg-gradient-to-b ${doc.color}`} />
-                          <p className="pl-4 text-xs font-bold text-text-sub uppercase tracking-wider mb-3">약력</p>
-                          <ul className="pl-4 space-y-1.5">
-                            {doc.career.map((item) => (
-                              <li key={item} className="flex items-start gap-2 text-[15px] text-navy leading-relaxed">
-                                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-mint flex-shrink-0" />
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Specialty tags */}
-                        <div className="mt-5 flex flex-wrap gap-2">
-                          {doc.specialty.map((tag) => (
-                            <span
-                              key={tag}
-                              className="rounded-full bg-white border border-gray-200 px-3 py-1.5 text-xs font-medium text-navy shadow-sm transition-colors hover:border-mint hover:text-mint"
-                            >
-                              {tag}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
+                {/* 아바타 + 본문 */}
+                <div className="relative px-6 pb-6">
+                  {/* 아바타 - 헤더와 본문 사이에 걸침 */}
+                  <div className="flex justify-center -mt-10">
+                    <div className={`flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br ${doc.color} text-3xl shadow-xl ring-4 ring-white transition-transform duration-300 group-hover:scale-105`}>
+                      <span role="img" aria-label={doc.role}>{doc.icon}</span>
                     </div>
                   </div>
 
-                  {/* Right: Schedule panel */}
-                  <div className="relative border-t border-gray-100 lg:border-l lg:border-t-0 bg-gradient-to-b from-white to-bg-light">
-                    <div className="p-8 sm:p-10 lg:pl-9">
-                      <div className="flex items-center gap-2 mb-6">
-                        <svg className="h-4 w-4 text-mint" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                        </svg>
-                        <p className="text-sm font-bold text-navy">진료 요일</p>
-                      </div>
+                  {/* 이름 + 직책 */}
+                  <div className="mt-4 text-center">
+                    <h2 className="text-xl font-bold text-navy">{doc.name}</h2>
+                    <span className={`mt-2 inline-block rounded-full px-3.5 py-1 text-xs font-bold ${
+                      doc.role === "구강외과전문의"
+                        ? "bg-mint/10 text-mint border border-mint/20"
+                        : doc.role === "대표원장"
+                          ? "bg-navy/8 text-navy border border-navy/15"
+                          : "bg-gray-50 text-text-sub border border-gray-200"
+                    }`}>
+                      {doc.role}
+                    </span>
+                  </div>
 
-                      {doc.schedule.off.length > 0 ? (
-                        <>
-                          <div className="space-y-2">
-                            {dayLabels.map((day) => {
-                              const isWorking = doc.schedule.working.includes(day);
-                              return (
-                                <div key={day} className={`flex items-center justify-between rounded-xl px-4 py-2.5 transition-all duration-200 ${
-                                  isWorking
-                                    ? "bg-white border border-gray-100 shadow-sm"
-                                    : "bg-gray-50"
-                                }`}>
-                                  <span className={`text-sm font-bold ${isWorking ? "text-navy" : "text-gray-300"}`}>
-                                    {day}요일
-                                  </span>
-                                  {isWorking ? (
-                                    <span className={`inline-flex items-center gap-1.5 rounded-full bg-gradient-to-r ${doc.color} px-3 py-1 text-xs font-bold text-white shadow-sm`}>
-                                      <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                                      </svg>
-                                      진료
-                                    </span>
-                                  ) : (
-                                    <span className="text-xs font-medium text-gray-300">휴진</span>
-                                  )}
-                                </div>
-                              );
-                            })}
-                          </div>
-                        </>
-                      ) : (
-                        <div className={`rounded-2xl bg-gradient-to-br ${doc.color} p-6 text-white shadow-lg`}>
-                          <p className="text-xl font-bold">{doc.schedule.working.join(", ")}</p>
-                          <p className="mt-2 text-sm text-white/80">수술 일정에 따라 변동될 수 있습니다</p>
-                          <div className="mt-4 flex items-center gap-2 text-xs text-white/60">
-                            <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-                            </svg>
-                            사전 예약 필수
-                          </div>
-                        </div>
-                      )}
-                    </div>
+                  {/* 약력 */}
+                  <div className="mt-5">
+                    <p className="text-xs font-bold text-text-sub uppercase tracking-wider mb-2">약력</p>
+                    <ul className="space-y-1.5">
+                      {doc.career.map((item) => (
+                        <li key={item} className="flex items-start gap-2 text-[13px] text-navy leading-relaxed">
+                          <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-mint flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* 전문 분야 태그 */}
+                  <div className="mt-5 flex flex-wrap gap-1.5">
+                    {doc.specialty.map((tag) => (
+                      <span
+                        key={tag}
+                        className={`rounded-full px-2.5 py-1 text-[11px] font-medium border transition-colors ${
+                          doc.role === "구강외과전문의"
+                            ? "border-mint/20 bg-mint/5 text-mint"
+                            : "border-navy/10 bg-navy/5 text-navy"
+                        }`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* 진료 요일 */}
+                  <div className="mt-5 pt-5 border-t border-gray-100">
+                    <p className="text-xs font-bold text-text-sub mb-3">진료 요일</p>
+                    {doc.schedule.off.length > 0 ? (
+                      <div className="flex gap-1.5">
+                        {dayLabels.map((day) => {
+                          const isWorking = doc.schedule.working.includes(day);
+                          return (
+                            <div
+                              key={day}
+                              className={`flex-1 flex flex-col items-center gap-1 rounded-xl py-2 text-xs font-bold transition-all ${
+                                isWorking
+                                  ? `bg-gradient-to-b ${doc.color} text-white shadow-sm`
+                                  : "bg-gray-50 text-gray-300"
+                              }`}
+                            >
+                              <span>{day}</span>
+                              {isWorking && (
+                                <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                </svg>
+                              )}
+                            </div>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <div className={`rounded-xl bg-gradient-to-r ${doc.color} px-4 py-3 text-center`}>
+                        <p className="text-sm font-bold text-white">{doc.schedule.working.join(", ")}</p>
+                        <p className="mt-1 text-[11px] text-white/70">수술 일정에 따라 변동</p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          {/* Unified Schedule Overview */}
+          {/* 주간 일정표 */}
           <div className="mt-16">
             <div className="text-center mb-10">
-              <h3 className="text-2xl sm:text-3xl font-bold text-navy">Weekly Schedule</h3>
-              <p className="mt-2 text-base sm:text-lg text-text-sub">주간 진료 일정표</p>
+              <h3 className="text-2xl sm:text-3xl font-bold text-navy">주간 진료 일정표</h3>
               <p className="mt-2 text-[15px] text-text-sub">원장님별 진료 요일을 한눈에 비교하세요</p>
             </div>
 
@@ -207,7 +178,7 @@ export default function DoctorsPage() {
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
-                    <tr className="bg-gradient-to-r from-navy to-navy-light">
+                    <tr className="bg-gradient-to-r from-navy via-[#1a3f6b] to-navy-light">
                       <th className="px-6 py-5 text-left text-sm font-bold text-white sm:px-8">원장</th>
                       {dayLabels.map((day) => (
                         <th key={day} className="px-4 py-5 text-center text-sm font-bold text-white/90 sm:px-6">{day}</th>
@@ -216,10 +187,13 @@ export default function DoctorsPage() {
                   </thead>
                   <tbody>
                     {doctors.map((doc, idx) => (
-                      <tr key={doc.name} className={`border-b border-gray-100 transition-colors hover:bg-mint/5 ${idx % 2 === 1 ? "bg-bg-light/50" : "bg-white"}`}>
+                      <tr
+                        key={doc.name}
+                        className={`border-b border-gray-100 transition-colors duration-200 hover:bg-mint/5 ${idx % 2 === 1 ? "bg-bg-light/50" : "bg-white"}`}
+                      >
                         <td className="px-6 py-5 sm:px-8">
                           <div className="flex items-center gap-3">
-                            <div className={`flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${doc.color} text-sm shadow-sm`}>
+                            <div className={`flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br ${doc.color} text-sm shadow-sm`}>
                               <span role="img" aria-label={doc.name}>{doc.icon}</span>
                             </div>
                             <div>
@@ -235,13 +209,13 @@ export default function DoctorsPage() {
                           return (
                             <td key={day} className="px-4 py-5 text-center sm:px-6">
                               {isWorking ? (
-                                <span className={`inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${doc.color} text-white shadow-sm transition-transform hover:scale-110`}>
+                                <span className={`inline-flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br ${doc.color} text-white shadow-sm transition-transform duration-200 hover:scale-110`}>
                                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                   </svg>
                                 </span>
                               ) : (
-                                <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gray-50 text-xs text-gray-300">—</span>
+                                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-gray-50 text-xs text-gray-300">—</span>
                               )}
                             </td>
                           );
@@ -254,39 +228,44 @@ export default function DoctorsPage() {
             </div>
           </div>
 
-          {/* Reservation Notice */}
-          <div className="mt-12 overflow-hidden rounded-3xl bg-gradient-to-r from-navy via-navy-light to-navy shadow-xl">
-            <div className="relative flex flex-col sm:flex-row items-start sm:items-center gap-6 px-8 py-8 sm:px-10">
-              {/* Decorative circles */}
-              <div className="absolute -top-8 -right-8 h-32 w-32 rounded-full bg-mint/10" />
-              <div className="absolute -bottom-4 -left-4 h-20 w-20 rounded-full bg-white/5" />
+          {/* 예약 CTA 배너 */}
+          <div className="mt-16 overflow-hidden rounded-3xl bg-gradient-to-r from-navy via-navy-light to-navy shadow-xl">
+            <div className="relative px-8 py-12 sm:px-12 sm:py-14 text-center">
+              {/* 장식 요소 */}
+              <div className="absolute -top-10 -right-10 h-40 w-40 rounded-full bg-mint/10" />
+              <div className="absolute -bottom-6 -left-6 h-24 w-24 rounded-full bg-white/5" />
+              <div className="absolute top-1/2 left-1/4 h-16 w-16 rounded-full bg-white/3" />
 
-              <div className="relative flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-2xl bg-white/15 backdrop-blur-sm">
-                <svg className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
-                </svg>
-              </div>
-              <div className="relative flex-1">
-                <p className="text-lg font-bold text-white">예약 안내</p>
-                <p className="mt-1 text-[15px] text-white/80 leading-relaxed">
-                  네이버 예약 요청 시, 병원에서 해당 원장님의 스케줄을 확인한 후 예약 확정 안내를 드립니다. 특정 원장님 지정 진료를 원하시면 예약 시 말씀해 주세요.
+              <div className="relative">
+                <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                  원하시는 원장님을 지정해서 예약하세요
+                </h3>
+                <p className="mt-3 text-[15px] text-white/70 max-w-lg mx-auto leading-relaxed">
+                  네이버 예약 요청 시, 병원에서 해당 원장님의 스케줄을 확인한 후 예약 확정 안내를 드립니다.
                 </p>
-              </div>
-              <div className="relative flex flex-shrink-0 gap-3">
-                <a
-                  href="tel:031-546-0051"
-                  className="rounded-full bg-white/15 backdrop-blur-sm px-6 py-3 text-sm font-bold text-white hover:bg-white/25 transition-all duration-300"
-                >
-                  전화 상담
-                </a>
-                <a
-                  href="https://booking.naver.com/booking/13/bizes/645159"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-full bg-white px-6 py-3 text-sm font-bold text-navy shadow-lg hover:bg-mint hover:text-white hover:shadow-mint/30 transition-all duration-300"
-                >
-                  네이버 예약
-                </a>
+
+                <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                  <a
+                    href="tel:031-546-0051"
+                    className="inline-flex items-center gap-2.5 rounded-full bg-warm px-8 py-4 text-base font-bold text-white shadow-lg shadow-warm/30 hover:bg-warm/90 transition-all duration-300 hover:-translate-y-0.5"
+                  >
+                    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                    </svg>
+                    전화 상담
+                  </a>
+                  <a
+                    href="https://booking.naver.com/booking/13/bizes/645159"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 rounded-full bg-[#03C75A] px-8 py-4 text-base font-bold text-white shadow-lg shadow-[#03C75A]/30 hover:bg-[#02b351] transition-all duration-300 hover:-translate-y-0.5"
+                  >
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727v12.845z" />
+                    </svg>
+                    네이버 예약
+                  </a>
+                </div>
               </div>
             </div>
           </div>
