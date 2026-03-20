@@ -8,6 +8,8 @@
   --color-bg-light: #f4f8fd;
   --color-text-main: #1a1a1a;
   --color-text-sub: #64748b;
+  --color-warm: #6366f1;
+  --color-warm-light: #eef2ff;
 }
 
 @layer base {
@@ -112,4 +114,43 @@
   background: linear-gradient(90deg, #00b5c7 0%, #4dd9e8 50%, #00b5c7 100%);
   background-size: 200% auto;
   animation: shimmer 3s linear infinite;
+}
+
+/* Slide / Scale entrance animations */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-slide-right {
+  animation: slideInRight 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-scale-in {
+  animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.animate-count-up {
+  animation: countUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Gradient text utility */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-mint) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }

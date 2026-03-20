@@ -84,54 +84,102 @@ export default function ServicesPage() {
   return (
     <>
       <PageHero
+        bgImage="/images/clinic/KakaoTalk_Photo_2026-03-12-21-57-46 008.jpeg"
         label="진료과목"
-        title="어떤 치료가 필요하세요?"
+        title="정확한 진단, 맞춤 치료"
         description="임플란트, 턱관절 치료, 보존과, 치주과, 구강외과, 예방치료 등 폭넓은 진료를 제공합니다."
       />
 
-      {/* Service List */}
+      {/* Bento Grid Services */}
       <section className="py-12 sm:py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 space-y-8">
-          {services.map((s, index) => (
-            <div
-              key={s.title}
-              id={s.title}
-              className="rounded-2xl border border-gray-200 bg-white p-6 sm:p-8 shadow-md hover:shadow-xl hover:border-mint/40 transition-all duration-300"
-            >
-              <div className="flex items-start gap-4">
-                <span className="inline-flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-bg-light text-xs font-bold text-navy">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 flex-wrap">
-                    <h2 className="text-xl font-bold text-navy">{s.title}</h2>
-                    <span className="rounded-full bg-mint/10 text-mint border border-mint/20 px-3 py-1 text-xs font-medium">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-5">
+            {services.map((s, index) => {
+              const isImplant = index === 0;
+              const isTmj = index === 3;
+              const isFeatured = isImplant || isTmj;
+
+              const cardBg = isImplant
+                ? "bg-navy text-white"
+                : isTmj
+                  ? "bg-gradient-to-br from-mint to-[#0097a7] text-white"
+                  : "bg-white border border-gray-200";
+
+              const titleColor = isFeatured ? "text-white" : "text-navy";
+              const descColor = isFeatured ? "text-white/85" : "text-text-sub";
+              const dotColor = isFeatured ? "bg-white/60" : "bg-mint";
+              const detailColor = isFeatured ? "text-white/80" : "text-text-sub";
+              const categoryBg = isFeatured
+                ? "bg-white/15 text-white border-white/20"
+                : "bg-mint/10 text-mint border-mint/20";
+              const highlightBg = isImplant
+                ? "bg-mint text-white"
+                : isTmj
+                  ? "bg-white text-[#0097a7]"
+                  : "bg-navy text-white";
+              const numberBg = isFeatured
+                ? "bg-white/15 text-white"
+                : "bg-bg-light text-navy";
+
+              return (
+                <div
+                  key={s.title}
+                  id={s.title}
+                  className={`rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${cardBg} ${isFeatured ? "md:col-span-2" : "md:col-span-1"}`}
+                >
+                  {/* Number badge */}
+                  <span
+                    className={`inline-flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold ${numberBg}`}
+                  >
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+
+                  {/* Category + Highlight badges */}
+                  <div className="flex items-center gap-2 flex-wrap mt-4">
+                    <span
+                      className={`rounded-full border px-3 py-1 text-xs font-medium ${categoryBg}`}
+                    >
                       {s.category}
                     </span>
                     {"highlight" in s && s.highlight && (
-                      <span className="rounded-full bg-navy px-3 py-0.5 text-xs font-bold text-white">
+                      <span
+                        className={`rounded-full px-3 py-1 text-xs font-bold ${highlightBg}`}
+                      >
                         {s.highlight}
                       </span>
                     )}
                   </div>
-                  <p className="mt-2 text-[15px] text-text-sub leading-relaxed">
+
+                  {/* Title */}
+                  <h2 className={`mt-3 text-xl sm:text-2xl font-bold ${titleColor}`}>
+                    {s.title}
+                  </h2>
+
+                  {/* Description */}
+                  <p className={`mt-3 text-[15px] leading-relaxed ${descColor}`}>
                     {s.desc}
                   </p>
-                  <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                  {/* Details */}
+                  <ul
+                    className={`mt-5 space-y-2 ${isFeatured ? "sm:grid sm:grid-cols-2 sm:gap-3 sm:space-y-0" : "space-y-2"}`}
+                  >
                     {s.details.map((d) => (
                       <li
                         key={d}
-                        className="flex items-center gap-2 text-[15px] text-text-sub"
+                        className={`flex items-start gap-2 text-sm ${detailColor}`}
                       >
-                        <div className="h-1.5 w-1.5 rounded-full bg-mint flex-shrink-0" />
+                        <div
+                          className={`h-1.5 w-1.5 rounded-full flex-shrink-0 mt-1.5 ${dotColor}`}
+                        />
                         {d}
                       </li>
                     ))}
                   </ul>
                 </div>
-              </div>
-            </div>
-          ))}
+              );
+            })}
+          </div>
         </div>
       </section>
 
@@ -139,15 +187,23 @@ export default function ServicesPage() {
       <section className="py-12 sm:py-16 bg-bg-light">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl font-bold text-navy">TMJ Treatment</h2>
-            <p className="mt-2 text-base sm:text-lg text-text-sub">턱관절 치료 상세</p>
-            <p className="mt-2 text-text-sub">전문 장비와 보톡스 치료를 병행해 턱관절 증상을 체계적으로 관리합니다.</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-navy">
+              TMJ Treatment
+            </h2>
+            <p className="mt-2 text-base sm:text-lg text-text-sub">
+              턱관절 치료 상세
+            </p>
+            <p className="mt-2 text-text-sub">
+              전문 장비와 보톡스 치료를 병행해 턱관절 증상을 체계적으로 관리합니다.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Targets */}
             <div className="rounded-2xl bg-white p-8 shadow-md">
-              <h3 className="text-lg font-bold text-navy mb-5">이런 분들에게 권합니다</h3>
+              <h3 className="text-lg font-bold text-navy mb-5">
+                이런 분들에게 권합니다
+              </h3>
               <div className="space-y-3">
                 {tmjTargets.map((target) => (
                   <div
@@ -158,36 +214,74 @@ export default function ServicesPage() {
                       <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-mint text-xs font-bold text-white">
                         ✓
                       </span>
-                      <span className="text-sm font-semibold text-navy">{target.label}</span>
+                      <span className="text-sm font-semibold text-navy">
+                        {target.label}
+                      </span>
                     </div>
-                    <p className="mt-1.5 ml-9 text-sm text-text-sub leading-relaxed">{target.sub}</p>
+                    <p className="mt-1.5 ml-9 text-sm text-text-sub leading-relaxed">
+                      {target.sub}
+                    </p>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-6 rounded-xl border border-mint/30 bg-mint/5 p-5">
-                <h4 className="text-sm font-bold text-navy">보톡스(보툴리눔톡신) 치료</h4>
+              <div className="mt-6 rounded-xl border-2 border-warm/40 bg-warm/5 p-5">
+                <h4 className="text-sm font-bold text-navy">
+                  보톡스(보툴리눔톡신) 치료
+                </h4>
                 <p className="mt-2 text-sm text-text-sub leading-relaxed">
-                  교근(씹는 근육)에 보톡스를 주입해 이갈이·이 악물기 습관을 완화하고, 교근비대로 인한 사각턱 개선 효과도 기대할 수 있습니다. 치료 목적(턱관절 통증·이갈이)과 미용 목적(사각턱·안면윤곽) 모두 시행합니다.
+                  교근(씹는 근육)에 보톡스를 주입해 이갈이·이 악물기 습관을
+                  완화하고, 교근비대로 인한 사각턱 개선 효과도 기대할 수 있습니다.
+                  치료 목적(턱관절 통증·이갈이)과 미용 목적(사각턱·안면윤곽) 모두
+                  시행합니다.
                 </p>
               </div>
             </div>
 
             {/* Equipment */}
             <div className="rounded-2xl bg-white p-8 shadow-md">
-              <h3 className="text-lg font-bold text-navy mb-5">전문 치료 장비</h3>
+              <h3 className="text-lg font-bold text-navy mb-5">
+                전문 치료 장비
+              </h3>
               <div className="space-y-3">
                 {[
-                  { name: "초음파 (Ultrasound)", desc: "1MHz 초음파로 심부투열치료, 관절·근육 통증 완화", code: "보험코드 U2381" },
-                  { name: "TENS (경피신경전기자극)", desc: "저주파 전기자극으로 근피로·통증 완화, 근육 재교육, 6채널 동시 치료", code: "보험코드 U2382" },
-                  { name: "냉각스프레이 (Cloretilo)", desc: "에틸클로라이드 100% 분사신장치료, 영하 20°C 냉각으로 근육 이완 및 통증 차단", code: "건강보험 적용 (MX032)" },
-                  { name: "Perfect Healing Laser (PHL-15)", desc: "650nm Red Diode Laser + 850nm IR LED, 세포 재생 촉진, 통증·부종·염증 완화", code: "텐스 포함 복합자극요법 청구" },
-                  { name: "Jaw Care System Premium", desc: "턱관절 장애·임플란트·발치·교정 후 통증 관리 종합 시스템", code: "" },
+                  {
+                    name: "초음파 (Ultrasound)",
+                    desc: "1MHz 초음파로 심부투열치료, 관절·근육 통증 완화",
+                    code: "보험코드 U2381",
+                  },
+                  {
+                    name: "TENS (경피신경전기자극)",
+                    desc: "저주파 전기자극으로 근피로·통증 완화, 근육 재교육, 6채널 동시 치료",
+                    code: "보험코드 U2382",
+                  },
+                  {
+                    name: "냉각스프레이 (Cloretilo)",
+                    desc: "에틸클로라이드 100% 분사신장치료, 영하 20°C 냉각으로 근육 이완 및 통증 차단",
+                    code: "건강보험 적용 (MX032)",
+                  },
+                  {
+                    name: "Perfect Healing Laser (PHL-15)",
+                    desc: "650nm Red Diode Laser + 850nm IR LED, 세포 재생 촉진, 통증·부종·염증 완화",
+                    code: "텐스 포함 복합자극요법 청구",
+                  },
+                  {
+                    name: "Jaw Care System Premium",
+                    desc: "턱관절 장애·임플란트·발치·교정 후 통증 관리 종합 시스템",
+                    code: "",
+                  },
                 ].map((eq) => (
-                  <div key={eq.name} className="rounded-xl bg-bg-light px-5 py-4">
+                  <div
+                    key={eq.name}
+                    className="rounded-xl bg-bg-light px-5 py-4"
+                  >
                     <p className="text-sm font-bold text-navy">{eq.name}</p>
                     <p className="mt-1 text-[15px] text-text-sub">{eq.desc}</p>
-                    {eq.code && <p className="mt-1 text-xs font-medium text-mint">{eq.code}</p>}
+                    {eq.code && (
+                      <p className="mt-1 text-xs font-medium text-mint">
+                        {eq.code}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
@@ -203,7 +297,8 @@ export default function ServicesPage() {
             어떤 치료가 필요한지 잘 모르겠다면?
           </h2>
           <p className="text-sm text-text-sub mb-6">
-            부담 없이 상담해 주세요. 정밀 검사 후 최적의 치료 방법을 안내드립니다.
+            부담 없이 상담해 주세요. 정밀 검사 후 최적의 치료 방법을
+            안내드립니다.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-3">
             <a
@@ -214,7 +309,7 @@ export default function ServicesPage() {
             </a>
             <Link
               href="/contact"
-              className="rounded-full border-2 border-navy px-6 py-3 text-sm font-bold text-navy hover:bg-navy hover:text-white transition-colors"
+              className="rounded-full bg-warm px-6 py-3 text-sm font-bold text-white hover:brightness-110 transition-colors"
             >
               온라인 문의
             </Link>
