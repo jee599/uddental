@@ -43,11 +43,11 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="text-sm font-bold text-text-main">바로가기</h3>
-            <div className="mt-2 flex flex-col gap-1 text-sm text-text-sub">
-              <Link href="/services" className="hover:text-navy">진료과목</Link>
-              <Link href="/doctors" className="hover:text-navy">의료진</Link>
-              <Link href="/location" className="hover:text-navy">오시는길</Link>
-              <a href="https://blog.naver.com/ud_dental" target="_blank" rel="noopener noreferrer" className="hover:text-navy">블로그</a>
+            <div className="mt-2 flex flex-col gap-0 text-sm text-text-sub">
+              <Link href="/services" className="py-1.5 hover:text-navy">진료과목</Link>
+              <Link href="/doctors" className="py-1.5 hover:text-navy">의료진</Link>
+              <Link href="/location" className="py-1.5 hover:text-navy">오시는길</Link>
+              <a href="https://blog.naver.com/ud_dental" target="_blank" rel="noopener noreferrer" className="py-1.5 hover:text-navy">블로그</a>
             </div>
           </div>
         </div>

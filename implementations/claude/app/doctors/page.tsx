@@ -91,7 +91,7 @@ export default function DoctorsPage() {
                       return (
                         <div
                           key={d}
-                          className={`flex-1 h-10 rounded-lg flex items-center justify-center text-xs font-bold sm:h-12 sm:rounded-xl sm:text-sm lg:h-14 ${
+                          className={`flex-1 h-11 rounded-lg flex items-center justify-center text-xs font-bold sm:h-12 sm:rounded-xl sm:text-sm lg:h-14 ${
                             on ? "text-white" : "bg-white text-gray-300 ring-1 ring-black/[0.04]"
                           }`}
                           style={on ? { backgroundColor: doc.accent } : undefined}
