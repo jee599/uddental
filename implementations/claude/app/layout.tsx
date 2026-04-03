@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import FloatingReservation from "./components/FloatingReservation";
 
+
 export const metadata: Metadata = {
   title: "동백유디치과 | 용인 동백 임플란트·치아교정·소아치과 전문",
   description:
@@ -26,10 +27,14 @@ export default function RootLayout({
           crossOrigin="anonymous"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap"
+        />
       </head>
-      <body className="bg-white antialiased">
+      <body suppressHydrationWarning className="bg-white antialiased">
         <Header />
-        <main className="pb-24 md:pb-0">{children}</main>
+        <main>{children}</main>
         <FloatingReservation />
         <Footer />
       </body>
